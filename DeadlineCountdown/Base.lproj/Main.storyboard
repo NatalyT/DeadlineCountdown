@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-74.400000000000006" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Date Picker View Controller-->
         <scene sceneID="HE5-5E-EEY">
             <objects>
-                <viewController id="qFk-K8-A8I" sceneMemberID="viewController">
+                <viewController id="qFk-K8-A8I" customClass="DatePickerViewController" customModule="DeadlineCountdown" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0O6-bo-XwO"/>
                         <viewControllerLayoutGuide type="bottom" id="3gs-QI-WhL"/>
@@ -70,6 +70,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="SAVE"/>
                                 <connections>
+                                    <action selector="countDown:" destination="qFk-K8-A8I" eventType="touchUpInside" id="97L-J2-J3e"/>
                                     <segue destination="ZFO-Vh-Ybd" kind="show" id="rDJ-Yv-PXP"/>
                                 </connections>
                             </button>
@@ -84,15 +85,18 @@
                             <constraint firstItem="QEq-dd-ZPR" firstAttribute="centerY" secondItem="tFe-Cp-kmS" secondAttribute="centerY" id="h5b-X4-mY9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="ECs-bl-7uL" id="cj1-o8-t4n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmw-Uw-psu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="676" y="137"/>
         </scene>
-        <!--View Controller-->
+        <!--Deadline View Controller-->
         <scene sceneID="rc2-2m-8Fl">
             <objects>
-                <viewController id="ZFO-Vh-Ybd" sceneMemberID="viewController">
+                <viewController id="ZFO-Vh-Ybd" customClass="DeadlineViewController" customModule="DeadlineCountdown" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9EH-HH-bTc"/>
                         <viewControllerLayoutGuide type="bottom" id="Zrk-Ta-XNp"/>
@@ -116,6 +120,9 @@
                             <constraint firstItem="PPe-VA-8JX" firstAttribute="centerX" secondItem="3XO-So-cj4" secondAttribute="centerX" id="zG7-G2-E63"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="deadlineLabel" destination="PPe-VA-8JX" id="eZR-Vr-9jG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvJ-97-Zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

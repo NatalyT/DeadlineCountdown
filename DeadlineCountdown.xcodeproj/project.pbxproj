@@ -14,6 +14,8 @@
 		C1289CC21F213C810013D446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CC01F213C810013D446 /* LaunchScreen.storyboard */; };
 		C1289CCD1F213C820013D446 /* DeadlineCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CCC1F213C820013D446 /* DeadlineCountdownTests.swift */; };
 		C1289CD81F213C820013D446 /* DeadlineCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CD71F213C820013D446 /* DeadlineCountdownUITests.swift */; };
+		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
+		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		C1289CD31F213C820013D446 /* DeadlineCountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeadlineCountdownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CD71F213C820013D446 /* DeadlineCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineCountdownUITests.swift; sourceTree = "<group>"; };
 		C1289CD91F213C820013D446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				C1289CBE1F213C810013D446 /* Assets.xcassets */,
 				C1289CC01F213C810013D446 /* LaunchScreen.storyboard */,
 				C1289CC31F213C810013D446 /* Info.plist */,
+				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
+				C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */,
 				C1289CBA1F213C810013D446 /* ViewController.swift in Sources */,
 				C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */,
+				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +522,7 @@
 				C1289CDE1F213C820013D446 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C1289CDF1F213C820013D446 /* Build configuration list for PBXNativeTarget "DeadlineCountdownTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +531,7 @@
 				C1289CE11F213C820013D446 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C1289CE21F213C820013D446 /* Build configuration list for PBXNativeTarget "DeadlineCountdownUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +540,7 @@
 				C1289CE41F213C820013D446 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
