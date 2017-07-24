@@ -12,6 +12,9 @@ class DatePickerViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var yearsLeft: Int?
+    var monthsLeft: Int?
+    var daysLeft: Int?
     
     @IBAction func countDown(_ sender: Any) {
         let chosenDate = self.datePicker.date
@@ -28,11 +31,11 @@ class DatePickerViewController: UIViewController {
         let CompetitionDayDifference = calendar.dateComponents([.year, .month, .day], from: currentDate!, to: chosenDate)
         
         //finally, here we set the variable to our remaining time
-        let yearsLeft = CompetitionDayDifference.year
-        let monthsLeft = CompetitionDayDifference.month
-        let daysLeft = CompetitionDayDifference.day
+         yearsLeft = CompetitionDayDifference.year
+         monthsLeft = CompetitionDayDifference.month
+         daysLeft = CompetitionDayDifference.day
         
-        print("years:", yearsLeft ?? "N/A", "months:", monthsLeft ?? "N/A", "days:", daysLeft ?? "N/A")
+        //print("years:", yearsLeft ?? "N/A", "months:", monthsLeft ?? "N/A", "days:", daysLeft ?? "N/A")
         
     }
     
@@ -48,14 +51,17 @@ class DatePickerViewController: UIViewController {
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
+        let secondScene = segue.destination as! DeadlineViewController
         // Pass the selected object to the new view controller.
+        secondScene.yearsLeft = yearsLeft
+        secondScene.monthsLeft = monthsLeft
+        secondScene.daysLeft = daysLeft
     }
-    */
 
 }

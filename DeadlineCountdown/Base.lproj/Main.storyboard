@@ -105,17 +105,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-VA-8JX">
-                                <rect key="frame" x="53" y="310" width="269" height="47"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-VA-8JX">
+                                <rect key="frame" x="52" y="259" width="271" height="149"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PPe-VA-8JX" firstAttribute="leading" secondItem="3XO-So-cj4" secondAttribute="leadingMargin" constant="37" id="Hyp-5s-S4v"/>
-                            <constraint firstItem="PPe-VA-8JX" firstAttribute="top" secondItem="9EH-HH-bTc" secondAttribute="bottom" constant="290" id="YUx-Vk-PZt"/>
+                            <constraint firstItem="PPe-VA-8JX" firstAttribute="leading" secondItem="3XO-So-cj4" secondAttribute="leadingMargin" constant="36" id="Hyp-5s-S4v"/>
+                            <constraint firstItem="PPe-VA-8JX" firstAttribute="top" secondItem="9EH-HH-bTc" secondAttribute="bottom" constant="239" id="YUx-Vk-PZt"/>
                             <constraint firstItem="PPe-VA-8JX" firstAttribute="centerY" secondItem="3XO-So-cj4" secondAttribute="centerY" id="gRK-AH-YUS"/>
                             <constraint firstItem="PPe-VA-8JX" firstAttribute="centerX" secondItem="3XO-So-cj4" secondAttribute="centerX" id="zG7-G2-E63"/>
                         </constraints>
@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvJ-97-Zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1422" y="136"/>
+            <point key="canvasLocation" x="1421.5999999999999" y="135.38230884557723"/>
         </scene>
     </scenes>
 </document>

@@ -11,12 +11,16 @@ import UIKit
 class DeadlineViewController: UIViewController {
 
     @IBOutlet weak var deadlineLabel: UILabel!
-   
-    //Set countdown label text
-    // countDownLabel.text = "\(daysLeft ?? 0) Days, \(hoursLeft ?? 0) Hours, \(minutesLeft ?? 0) Minutes"
     
-    override func viewDidLoad() {
+    var yearsLeft: Int?
+    var monthsLeft: Int?
+    var daysLeft: Int?
+   
+        override func viewDidLoad() {
         super.viewDidLoad()
+            
+        //Set countdown label text
+        deadlineLabel.text = "\(yearsLeft ?? 0) Year(s), \n\(monthsLeft ?? 0) Month(s), \n\(daysLeft ?? 0) Day(s)"
 
         // Do any additional setup after loading the view.
     }
