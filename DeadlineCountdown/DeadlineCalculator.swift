@@ -27,13 +27,13 @@ class DeadlineCalculator {
         
         //here we change the seconds to years, months and days
         let CompetitionDayDifference = calendar.dateComponents([.year, .month, .day], from: currentDate!, to: self.tillDate)
+
         
-        //finally, here we set the variable to our remaining time
-        let years = CompetitionDayDifference.year
-        let months = CompetitionDayDifference.month
-        let days = CompetitionDayDifference.day
-        
-        return (years: years!, months: months!, days: days!)
+        return (
+            years: CompetitionDayDifference.year!,
+            months: CompetitionDayDifference.month!,
+            days: CompetitionDayDifference.day!
+        )
 
     }
     
