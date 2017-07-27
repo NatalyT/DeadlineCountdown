@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */; };
 		C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB71F213C810013D446 /* AppDelegate.swift */; };
 		C1289CBA1F213C810013D446 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB91F213C810013D446 /* ViewController.swift */; };
 		C1289CBD1F213C810013D446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CBB1F213C810013D446 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		C1289CD81F213C820013D446 /* DeadlineCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CD71F213C820013D446 /* DeadlineCountdownUITests.swift */; };
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
+		C19D8CB31F289322003B6493 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CB11F289322003B6493 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCalculator.swift; sourceTree = "<group>"; };
 		C1289CB41F213C810013D446 /* DeadlineCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadlineCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CB71F213C810013D446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1289CB91F213C810013D446 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		C1289CD91F213C820013D446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
+		C19D8CB21F289322003B6493 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +107,14 @@
 			children = (
 				C1289CB71F213C810013D446 /* AppDelegate.swift */,
 				C1289CB91F213C810013D446 /* ViewController.swift */,
+				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
+				C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */,
 				C1289CBB1F213C810013D446 /* Main.storyboard */,
 				C1289CBE1F213C810013D446 /* Assets.xcassets */,
 				C1289CC01F213C810013D446 /* LaunchScreen.storyboard */,
 				C1289CC31F213C810013D446 /* Info.plist */,
-				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
-				C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */,
+				C19D8CB11F289322003B6493 /* Model.xcdatamodeld */,
+				C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -270,8 +276,10 @@
 			files = (
 				C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */,
 				C1289CBA1F213C810013D446 /* ViewController.swift in Sources */,
+				C19D8CB31F289322003B6493 /* Model.xcdatamodeld in Sources */,
 				C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */,
 				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,
+				C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +551,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C19D8CB11F289322003B6493 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C19D8CB21F289322003B6493 /* Model.xcdatamodel */,
+			);
+			currentVersion = C19D8CB21F289322003B6493 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C1289CAC1F213C810013D446 /* Project object */;
 }

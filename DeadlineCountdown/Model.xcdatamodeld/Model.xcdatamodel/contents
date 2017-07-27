@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Days" representedClassName="Days" syncable="YES" codeGenerationType="class"/>
+    <entity name="Months" representedClassName="Months" syncable="YES" codeGenerationType="class"/>
+    <entity name="Years" representedClassName="Years" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Years" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="Months" positionX="-54" positionY="-9" width="128" height="45"/>
+        <element name="Days" positionX="-36" positionY="9" width="128" height="45"/>
+    </elements>
+</model>
