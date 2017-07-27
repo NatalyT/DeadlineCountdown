@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */; };
+		C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F121F2A6D1900ED612C /* DeadlineText.swift */; };
 		C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB71F213C810013D446 /* AppDelegate.swift */; };
 		C1289CBA1F213C810013D446 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB91F213C810013D446 /* ViewController.swift */; };
 		C1289CBD1F213C810013D446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CBB1F213C810013D446 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCalculator.swift; sourceTree = "<group>"; };
+		C1143F121F2A6D1900ED612C /* DeadlineText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineText.swift; sourceTree = "<group>"; };
 		C1289CB41F213C810013D446 /* DeadlineCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadlineCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CB71F213C810013D446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1289CB91F213C810013D446 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				C1289CC31F213C810013D446 /* Info.plist */,
 				C19D8CB11F289322003B6493 /* Model.xcdatamodeld */,
 				C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */,
+				C1143F121F2A6D1900ED612C /* DeadlineText.swift */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			files = (
 				C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */,
 				C1289CBA1F213C810013D446 /* ViewController.swift in Sources */,
+				C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */,
 				C19D8CB31F289322003B6493 /* Model.xcdatamodeld in Sources */,
 				C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */,
 				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,

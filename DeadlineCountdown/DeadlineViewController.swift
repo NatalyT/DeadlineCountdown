@@ -14,14 +14,13 @@ class DeadlineViewController: UIViewController {
     
     var chosenDate: Date?
    
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         let deadline = DeadlineCalculator(chosenDate!).calculate()
-            
-        //Set countdown label text
-        deadlineLabel.text = "\(deadline.years) Year(s), \n\(deadline.months) Month(s), \n\(deadline.days) Day(s)"
-
+        
+        deadlineLabel.text = DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
+        
         // Do any additional setup after loading the view.
     }
 
