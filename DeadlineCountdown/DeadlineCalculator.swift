@@ -16,7 +16,7 @@ class DeadlineCalculator {
         tillDate = date
     }
     
-    func calculateCountdown() -> (Int, Int, Int) {
+    func calculate() -> (years: Int, months: Int, days: Int) {
         let date = Date()
         
         let calendar = Calendar.current
@@ -29,11 +29,11 @@ class DeadlineCalculator {
         let CompetitionDayDifference = calendar.dateComponents([.year, .month, .day], from: currentDate!, to: self.tillDate)
         
         //finally, here we set the variable to our remaining time
-        let yearsLeft = CompetitionDayDifference.year
-        let monthsLeft = CompetitionDayDifference.month
-        let daysLeft = CompetitionDayDifference.day
+        let years = CompetitionDayDifference.year
+        let months = CompetitionDayDifference.month
+        let days = CompetitionDayDifference.day
         
-        return (yearsLeft!, monthsLeft!, daysLeft!)
+        return (years: years!, months: months!, days: days!)
 
     }
     

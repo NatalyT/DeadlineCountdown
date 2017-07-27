@@ -12,15 +12,15 @@ class DeadlineViewController: UIViewController {
 
     @IBOutlet weak var deadlineLabel: UILabel!
     
-    var yearsLeft: Int?
-    var monthsLeft: Int?
-    var daysLeft: Int?
+    var chosenDate: Date?
    
         override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let deadline = DeadlineCalculator(chosenDate!).calculate()
             
         //Set countdown label text
-        deadlineLabel.text = "\(yearsLeft ?? 0) Year(s), \n\(monthsLeft ?? 0) Month(s), \n\(daysLeft ?? 0) Day(s)"
+        deadlineLabel.text = "\(deadline.years) Year(s), \n\(deadline.months) Month(s), \n\(deadline.days) Day(s)"
 
         // Do any additional setup after loading the view.
     }
