@@ -23,9 +23,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jka-X7-1ql">
-                                <rect key="frame" x="149" y="308" width="77" height="51"/>
+                                <rect key="frame" x="62" y="308" width="250" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="DATE"/>
+                                <state key="normal" title="Choose a date"/>
                                 <connections>
                                     <segue destination="qFk-K8-A8I" kind="show" id="9eI-QE-2Qv"/>
                                 </connections>
@@ -33,9 +33,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Jka-X7-1ql" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="133" id="JTU-hO-xiV"/>
+                            <constraint firstItem="Jka-X7-1ql" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="46" id="JTU-hO-xiV"/>
                             <constraint firstItem="Jka-X7-1ql" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="keC-y1-itt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jka-X7-1ql" secondAttribute="trailing" constant="133" id="tR6-Da-4PT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jka-X7-1ql" secondAttribute="trailing" constant="47" id="tR6-Da-4PT"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Ygl-1d-K0L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="SAVE"/>
+                                <state key="normal" title="Choose"/>
                                 <connections>
                                     <segue destination="ZFO-Vh-Ybd" kind="show" id="rDJ-Yv-PXP"/>
                                 </connections>
