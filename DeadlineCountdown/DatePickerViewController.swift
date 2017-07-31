@@ -14,8 +14,10 @@ class DatePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        datePicker.minimumDate = getMinDate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +37,12 @@ class DatePickerViewController: UIViewController {
         let chosenDate = self.datePicker.date
         secondScene.chosenDate = chosenDate
     
+    }
+    
+    private func getMinDate() -> Date {
+        var components = DateComponents()
+        components.day = 1
+        return Calendar.current.date(byAdding: components, to: Date())!
     }
 
 }
