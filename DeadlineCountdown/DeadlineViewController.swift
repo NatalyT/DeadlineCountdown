@@ -17,11 +17,15 @@ class DeadlineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+        
         let deadline = DeadlineCalculator(chosenDate!).calculate()
         
         deadlineLabel.text = DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
         
-        // Do any additional setup after loading the view.
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,4 +44,9 @@ class DeadlineViewController: UIViewController {
     }
     */
 
+    func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
