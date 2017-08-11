@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DeadlineViewController: UIViewController /*, UIApplicationDelegate */{
+class DeadlineViewController: UIViewController {
 
     @IBOutlet weak var deadlineLabel: UILabel!
     
@@ -35,18 +35,6 @@ class DeadlineViewController: UIViewController /*, UIApplicationDelegate */{
         
     }
     
-    /* func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-        self.performSegue(withIdentifier: "rightSegue", sender: nil)
-    }
-    */
-    
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "rightSegue" {
-            let destinationVC = segue.destination as? DatePickerViewController
-            //destinationVC?.perform()
-            }
-    }
-    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

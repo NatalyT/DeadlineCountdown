@@ -28,8 +28,6 @@ class DatePickerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 
     // MARK: - Navigation
 
@@ -65,7 +63,6 @@ class DatePickerViewController: UIViewController {
     private func getMinDate() -> Date {
         var components = DateComponents()
         components.day = 1
-        //print("\(Calendar.current.date(byAdding: components, to: Date())!)")
         return Calendar.current.date(byAdding: components, to: Date())!
     }
 
