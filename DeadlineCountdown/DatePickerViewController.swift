@@ -8,9 +8,13 @@
 
 import UIKit
 
+import CoreData
+
 class DatePickerViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var storedDate: NSManagedObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +36,36 @@ class DatePickerViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        let secondScene = segue.destination as! DeadlineViewController
+        //let secondScene = segue.destination as! DeadlineViewController
         // Pass the selected object to the new view controller.
         let chosenDate = self.datePicker.date
-        secondScene.chosenDate = chosenDate
+        self.save(date: chosenDate)
+        //secondScene.chosenDate = chosenDate
+    }
     
+    func save(date: Date) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
+        let deadline = NSManagedObject(entity: entity, insertInto: managedContext)
+        deadline.setValue(date, forKeyPath: "data")
+        
+        do {
+            try managedContext.save()
+            storedDate = deadline
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     private func getMinDate() -> Date {
         var components = DateComponents()
         components.day = 1
+        //print("\(Calendar.current.date(byAdding: components, to: Date())!)")
         return Calendar.current.date(byAdding: components, to: Date())!
     }
 

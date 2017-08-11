@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */; };
 		C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F121F2A6D1900ED612C /* DeadlineText.swift */; };
+		C11AF3741F33BDAF008B94C3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AF3731F33BDAF008B94C3 /* CoreData.framework */; };
 		C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB71F213C810013D446 /* AppDelegate.swift */; };
 		C1289CBA1F213C810013D446 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB91F213C810013D446 /* ViewController.swift */; };
 		C1289CBD1F213C810013D446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CBB1F213C810013D446 /* Main.storyboard */; };
@@ -16,9 +17,10 @@
 		C1289CC21F213C810013D446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CC01F213C810013D446 /* LaunchScreen.storyboard */; };
 		C1289CCD1F213C820013D446 /* DeadlineCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CCC1F213C820013D446 /* DeadlineCountdownTests.swift */; };
 		C1289CD81F213C820013D446 /* DeadlineCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CD71F213C820013D446 /* DeadlineCountdownUITests.swift */; };
+		C12E15811F38C26F00ED6F6F /* DeadlineItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12E15801F38C26F00ED6F6F /* DeadlineItems.swift */; };
+		C17A579A1F326BDB00A29908 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C17A57981F326BDB00A29908 /* Model.xcdatamodeld */; };
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
-		C19D8CB31F289322003B6493 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CB11F289322003B6493 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 /* Begin PBXFileReference section */
 		C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCalculator.swift; sourceTree = "<group>"; };
 		C1143F121F2A6D1900ED612C /* DeadlineText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineText.swift; sourceTree = "<group>"; };
+		C11AF3731F33BDAF008B94C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C1289CB41F213C810013D446 /* DeadlineCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadlineCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CB71F213C810013D446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1289CB91F213C810013D446 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,9 +57,10 @@
 		C1289CD31F213C820013D446 /* DeadlineCountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeadlineCountdownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CD71F213C820013D446 /* DeadlineCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineCountdownUITests.swift; sourceTree = "<group>"; };
 		C1289CD91F213C820013D446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C12E15801F38C26F00ED6F6F /* DeadlineItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineItems.swift; sourceTree = "<group>"; };
+		C17A57991F326BDB00A29908 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
-		C19D8CB21F289322003B6493 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11AF3741F33BDAF008B94C3 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C11AF3721F33BDAF008B94C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C11AF3731F33BDAF008B94C3 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C1289CAB1F213C810013D446 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,7 @@
 				C1289CCB1F213C820013D446 /* DeadlineCountdownTests */,
 				C1289CD61F213C820013D446 /* DeadlineCountdownUITests */,
 				C1289CB51F213C810013D446 /* Products */,
+				C11AF3721F33BDAF008B94C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,9 +129,10 @@
 				C1289CBE1F213C810013D446 /* Assets.xcassets */,
 				C1289CC01F213C810013D446 /* LaunchScreen.storyboard */,
 				C1289CC31F213C810013D446 /* Info.plist */,
-				C19D8CB11F289322003B6493 /* Model.xcdatamodeld */,
 				C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */,
 				C1143F121F2A6D1900ED612C /* DeadlineText.swift */,
+				C17A57981F326BDB00A29908 /* Model.xcdatamodeld */,
+				C12E15801F38C26F00ED6F6F /* DeadlineItems.swift */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -210,6 +225,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 9487RPB949;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					C1289CC71F213C820013D446 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -280,10 +300,11 @@
 				C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */,
 				C1289CBA1F213C810013D446 /* ViewController.swift in Sources */,
 				C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */,
-				C19D8CB31F289322003B6493 /* Model.xcdatamodeld in Sources */,
+				C17A579A1F326BDB00A29908 /* Model.xcdatamodeld in Sources */,
 				C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */,
 				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,
 				C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */,
+				C12E15811F38C26F00ED6F6F /* DeadlineItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,12 +578,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C19D8CB11F289322003B6493 /* Model.xcdatamodeld */ = {
+		C17A57981F326BDB00A29908 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C19D8CB21F289322003B6493 /* Model.xcdatamodel */,
+				C17A57991F326BDB00A29908 /* Model.xcdatamodel */,
 			);
-			currentVersion = C19D8CB21F289322003B6493 /* Model.xcdatamodel */;
+			currentVersion = C17A57991F326BDB00A29908 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
