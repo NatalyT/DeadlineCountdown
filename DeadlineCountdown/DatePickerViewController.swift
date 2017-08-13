@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 import CoreData
 
 class DatePickerViewController: UIViewController {
@@ -20,7 +19,6 @@ class DatePickerViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
         datePicker.minimumDate = getMinDate()
     }
 

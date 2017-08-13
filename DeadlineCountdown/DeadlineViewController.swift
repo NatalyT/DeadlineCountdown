@@ -53,8 +53,7 @@ class DeadlineViewController: UIViewController {
 
     func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
-            //self.dismiss(animated: true, completion: nil)
-            let datePickerViewController = DatePickerViewController()
+            let datePickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
             self.present(datePickerViewController, animated: true, completion: nil)
             
         }
