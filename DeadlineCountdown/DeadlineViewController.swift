@@ -15,19 +15,16 @@ class DeadlineViewController: UIViewController {
     
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
-    //var chosenDate: Date?
-    
-    var storedDate: [NSManagedObject] = []
+    var storedDate: [DeadlineItems] = []
    
     override func viewDidLoad() {
         super.viewDidLoad()
         storedDate = DeadlineItems.all()
-        let date = storedDate[storedDate.count-1]
-        let chosenDate = date.value(forKey: "data") as? Date
+        let chosenDate = storedDate[storedDate.count-1].date
         
         let deadline = DeadlineCalculator(chosenDate!).calculate()
    
-        deadlineLabel.text = DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
+        deadlineLabel.text = storedDate[storedDate.count-1].dateTitle! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
         
        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right

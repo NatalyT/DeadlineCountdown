@@ -61,8 +61,18 @@
                                     <!--2017-07-24 18:03:03 +0000-->
                                 </date>
                             </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type date title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Le-17-wYy">
+                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qFk-K8-A8I" id="Bsg-NE-m4T"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEq-dd-ZPR">
-                                <rect key="frame" x="132" y="296" width="110" height="50"/>
+                                <rect key="frame" x="132" y="397" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="8kZ-L2-5EP"/>
                                     <constraint firstAttribute="height" constant="50" id="Ygl-1d-K0L"/>
@@ -77,7 +87,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QEq-dd-ZPR" firstAttribute="centerX" secondItem="ECs-bl-7uL" secondAttribute="centerX" id="7vA-Vm-8jU"/>
-                            <constraint firstItem="QEq-dd-ZPR" firstAttribute="top" secondItem="ECs-bl-7uL" secondAttribute="bottom" constant="20" id="EEI-hG-YJ9"/>
+                            <constraint firstItem="QEq-dd-ZPR" firstAttribute="top" secondItem="ECs-bl-7uL" secondAttribute="bottom" constant="121" id="EEI-hG-YJ9"/>
                             <constraint firstItem="ECs-bl-7uL" firstAttribute="leading" secondItem="tFe-Cp-kmS" secondAttribute="leading" id="FCz-9W-JdZ"/>
                             <constraint firstAttribute="trailing" secondItem="ECs-bl-7uL" secondAttribute="trailing" id="FjC-wj-gDJ"/>
                             <constraint firstAttribute="trailing" secondItem="ECs-bl-7uL" secondAttribute="trailing" id="Kv3-qJ-ba2"/>
@@ -87,11 +97,12 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="ECs-bl-7uL" id="cj1-o8-t4n"/>
+                        <outlet property="titleDate" destination="0Le-17-wYy" id="SLS-hZ-Hsj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmw-Uw-psu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="137"/>
+            <point key="canvasLocation" x="676" y="136.28185907046478"/>
         </scene>
         <!--Deadline View Controller-->
         <scene sceneID="rc2-2m-8Fl">

@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-class DatePickerViewController: UIViewController {
+class DatePickerViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var titleDate: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var storedDate: NSManagedObject!
@@ -26,6 +27,15 @@ class DatePickerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     // MARK: - Navigation
 
@@ -34,12 +44,11 @@ class DatePickerViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         //let secondScene = segue.destination as! DeadlineViewController
         // Pass the selected object to the new view controller.
-        let chosenDate = self.datePicker.date
-        self.save(date: chosenDate)
-        //secondScene.chosenDate = chosenDate
+        self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!)
+        self.titleDate.resignFirstResponder()
     }
     
-    func save(date: Date) {
+    func save(date: Date, titleOfDate: String) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
@@ -49,6 +58,7 @@ class DatePickerViewController: UIViewController {
         let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
         let deadline = NSManagedObject(entity: entity, insertInto: managedContext)
         deadline.setValue(date, forKeyPath: "data")
+        deadline.setValue(titleOfDate, forKey: "titleDate")
         
         do {
             try managedContext.save()

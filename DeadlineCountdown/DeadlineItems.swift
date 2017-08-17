@@ -11,18 +11,33 @@ import UIKit
 import CoreData
 
 class DeadlineItems {
+    var dateTitle: String?
+    var date: Date?
     
-class func all() -> [NSManagedObject] {
+    init(dateTitle: String, date: Date) {
+        self.dateTitle = dateTitle
+        self.date = date
+    }
+    
+    class func all() -> [DeadlineItems] {
         var storedDate: [NSManagedObject] = []
+        var result: [DeadlineItems] = []
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Deadline")
         do {
             storedDate = try managedContext!.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [NSManagedObject]
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-                }
-        return storedDate
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for item in storedDate {
+            let chosenDate = item.value(forKey: "data") as? Date
+            let titleOfChosenDate = item.value(forKey: "titleDate") as? String
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!)
+            result.append(deadlineItem)
+        }
+
+        return result
     }
     
 class func deleteAll(entity: String)

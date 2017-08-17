@@ -20,14 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Clear the Database
         //DeadlineItems.deleteAll(entity: "Deadline")
         
-        var storedDate: [NSManagedObject] = []
+        var storedDate: [DeadlineItems] = []
 
         storedDate = DeadlineItems.all()
         
         print("\(storedDate.count)")
         for item in storedDate {
-            let chosenDate = item.value(forKey: "data") as? Date
-            print("\(String(describing: chosenDate))")
+            print("\(String(describing: item.dateTitle))" + "   " + "\(String(describing: item.date))")
         }
         
         if storedDate.count != 0 {
