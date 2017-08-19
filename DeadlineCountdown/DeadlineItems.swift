@@ -13,15 +13,19 @@ import CoreData
 class DeadlineItems {
     var dateTitle: String?
     var date: Date?
+    var coreDataItem: NSManagedObject?
     
-    init(dateTitle: String, date: Date) {
+    init(dateTitle: String, date: Date, coreDataItem: NSManagedObject) {
         self.dateTitle = dateTitle
         self.date = date
+        self.coreDataItem = coreDataItem
+        
     }
     
     class func all() -> [DeadlineItems] {
-        var storedDate: [NSManagedObject] = []
+    
         var result: [DeadlineItems] = []
+        var storedDate: [NSManagedObject] = []
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Deadline")
@@ -33,7 +37,8 @@ class DeadlineItems {
         for item in storedDate {
             let chosenDate = item.value(forKey: "data") as? Date
             let titleOfChosenDate = item.value(forKey: "titleDate") as? String
-            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!)
+            //let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!)
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, coreDataItem: item)
             result.append(deadlineItem)
         }
 

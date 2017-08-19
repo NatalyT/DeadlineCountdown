@@ -56,21 +56,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ECs-bl-7uL">
-                                <rect key="frame" x="0.0" y="60" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="522612183.69453597">
                                     <!--2017-07-24 18:03:03 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type date title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Le-17-wYy">
-                                <rect key="frame" x="16" y="318" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="qFk-K8-A8I" id="Bsg-NE-m4T"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEq-dd-ZPR">
                                 <rect key="frame" x="132" y="397" width="110" height="50"/>
                                 <constraints>
@@ -83,16 +73,28 @@
                                     <segue destination="ZFO-Vh-Ybd" kind="show" id="rDJ-Yv-PXP"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type date title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Le-17-wYy">
+                                <rect key="frame" x="63" y="69" width="248" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qFk-K8-A8I" id="Bsg-NE-m4T"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Le-17-wYy" secondAttribute="trailing" constant="48" id="3QX-nV-dDS"/>
                             <constraint firstItem="QEq-dd-ZPR" firstAttribute="centerX" secondItem="ECs-bl-7uL" secondAttribute="centerX" id="7vA-Vm-8jU"/>
-                            <constraint firstItem="QEq-dd-ZPR" firstAttribute="top" secondItem="ECs-bl-7uL" secondAttribute="bottom" constant="121" id="EEI-hG-YJ9"/>
+                            <constraint firstItem="QEq-dd-ZPR" firstAttribute="top" secondItem="ECs-bl-7uL" secondAttribute="bottom" constant="59" id="EEI-hG-YJ9"/>
                             <constraint firstItem="ECs-bl-7uL" firstAttribute="leading" secondItem="tFe-Cp-kmS" secondAttribute="leading" id="FCz-9W-JdZ"/>
                             <constraint firstAttribute="trailing" secondItem="ECs-bl-7uL" secondAttribute="trailing" id="FjC-wj-gDJ"/>
                             <constraint firstAttribute="trailing" secondItem="ECs-bl-7uL" secondAttribute="trailing" id="Kv3-qJ-ba2"/>
+                            <constraint firstItem="0Le-17-wYy" firstAttribute="leading" secondItem="tFe-Cp-kmS" secondAttribute="leadingMargin" constant="47" id="Oo1-Ow-HYv"/>
+                            <constraint firstItem="0Le-17-wYy" firstAttribute="top" secondItem="0O6-bo-XwO" secondAttribute="bottom" constant="49" id="aVW-Cr-Pos"/>
                             <constraint firstItem="ECs-bl-7uL" firstAttribute="leading" secondItem="tFe-Cp-kmS" secondAttribute="leading" id="dSf-Ae-Cgv"/>
-                            <constraint firstItem="ECs-bl-7uL" firstAttribute="top" secondItem="0O6-bo-XwO" secondAttribute="bottom" constant="40" id="s4A-m9-kBY"/>
+                            <constraint firstItem="ECs-bl-7uL" firstAttribute="top" secondItem="0O6-bo-XwO" secondAttribute="bottom" constant="102" id="s4A-m9-kBY"/>
                         </constraints>
                     </view>
                     <connections>

@@ -15,12 +15,18 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var storedDate: NSManagedObject!
+    var storedDateArray: [DeadlineItems] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        storedDateArray = DeadlineItems.all()
         datePicker.minimumDate = getMinDate()
+        if storedDateArray.count != 0 {
+            titleDate.text = storedDateArray[0].dateTitle!
+            datePicker.date = storedDateArray[0].date!
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,21 +57,29 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     func save(date: Date, titleOfDate: String) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
+            return
         }
+
+        storedDateArray = DeadlineItems.all()
+        let deadline: NSManagedObject
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
-        let deadline = NSManagedObject(entity: entity, insertInto: managedContext)
-        deadline.setValue(date, forKeyPath: "data")
-        deadline.setValue(titleOfDate, forKey: "titleDate")
+        if storedDateArray.count != 0 {
+            let item = storedDateArray[0]
+            deadline = item.coreDataItem!
+        } else {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
+            deadline = NSManagedObject(entity: entity, insertInto: managedContext)
+        }
         
         do {
-            try managedContext.save()
-            storedDate = deadline
+            deadline.setValue(date, forKeyPath: "data")
+            deadline.setValue(titleOfDate, forKey: "titleDate")
+            
+            try deadline.managedObjectContext?.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
-        }
+        }        
     }
     
     private func getMinDate() -> Date {

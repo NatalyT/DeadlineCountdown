@@ -18,15 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Clear the Database
-        //DeadlineItems.deleteAll(entity: "Deadline")
+        // DeadlineItems.deleteAll(entity: "Deadline")
         
-        var storedDate: [DeadlineItems] = []
-
-        storedDate = DeadlineItems.all()
+        let storedDate = DeadlineItems.all()
         
         print("\(storedDate.count)")
         for item in storedDate {
-            print("\(String(describing: item.dateTitle))" + "   " + "\(String(describing: item.date))")
+            print("---\(String(describing: item.dateTitle))  \(String(describing: item.date)))")
         }
         
         if storedDate.count != 0 {
@@ -109,4 +107,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    }
+}
