@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b4p-Gr-4bB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,38 +10,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Dates Table View Controller-->
+        <scene sceneID="gWq-Iq-vx0">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController   " useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="DeadlineCountdown" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n0t-Qj-P1m" customClass="DatesTableViewController" customModule="DeadlineCountdown" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gmt-0B-Kw1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jka-X7-1ql">
-                                <rect key="frame" x="62" y="308" width="250" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Choose a date"/>
-                                <connections>
-                                    <segue destination="qFk-K8-A8I" kind="show" id="9eI-QE-2Qv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Jka-X7-1ql" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="46" id="JTU-hO-xiV"/>
-                            <constraint firstItem="Jka-X7-1ql" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="keC-y1-itt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jka-X7-1ql" secondAttribute="trailing" constant="47" id="tR6-Da-4PT"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0Y6-Id-t5P">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Y6-Id-t5P" id="gAY-TK-b1E">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n0t-Qj-P1m" id="qJn-Sh-XxD"/>
+                            <outlet property="delegate" destination="n0t-Qj-P1m" id="vrm-im-4cW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="b5f-9P-XTn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qQ3-DU-CUX">
+                            <connections>
+                                <segue destination="qFk-K8-A8I" kind="show" id="24W-h2-Qvz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ua-GT-m4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74.400000000000006" y="137.18140929535232"/>
+            <point key="canvasLocation" x="114.40000000000001" y="130.88455772113943"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="HE5-5E-EEY">
@@ -104,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tmw-Uw-psu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="136.28185907046478"/>
+            <point key="canvasLocation" x="942" y="131"/>
         </scene>
         <!--Deadline View Controller-->
         <scene sceneID="rc2-2m-8Fl">
@@ -139,7 +141,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvJ-97-Zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421.5999999999999" y="135.38230884557723"/>
+            <point key="canvasLocation" x="1716" y="131"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oDp-Hk-ozg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b4p-Gr-4bB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dre-Ho-LlO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n0t-Qj-P1m" kind="relationship" relationship="rootViewController" id="DjP-DW-8KU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wif-22-8iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-824.79999999999995" y="130.88455772113943"/>
         </scene>
     </scenes>
 </document>
