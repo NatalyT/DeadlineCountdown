@@ -20,13 +20,13 @@ class DeadlineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         storedDate = DeadlineItems.all()
-        let chosenDate = storedDate[0].date
+        let chosenDate = storedDate[storedDate.count-1].date
         let deadline = DeadlineCalculator(chosenDate!).calculate()
-        deadlineLabel.text = storedDate[0].dateTitle! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
+        deadlineLabel.text = storedDate[storedDate.count-1].dateTitle! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
         
-       let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-        swipeRight.direction = .right
-        self.view.addGestureRecognizer(swipeRight)
+      // let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+      // swipeRight.direction = .right
+      // self.view.addGestureRecognizer(swipeRight)
         
     }
     
@@ -43,14 +43,15 @@ class DeadlineViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        // Pass the selected object to the new view controller.
     }
     */
 
-    func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+   /* func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             let datePickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
             self.present(datePickerViewController, animated: true, completion: nil)
             
         }
-    }
+    }*/
 }

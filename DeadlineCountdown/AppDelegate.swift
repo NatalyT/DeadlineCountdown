@@ -18,21 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Clear the Database
-         DeadlineItems.deleteAll(entity: "Deadline")
+        DeadlineItems.deleteAll(entity: "Deadline")
         
         let storedDate = DeadlineItems.all()
         
         print("\(storedDate.count)")
         for item in storedDate {
             print("---\(String(describing: item.dateTitle))  \(String(describing: item.date)))")
-        }
-        
-        if storedDate.count != 0 {
-            let mainStoryboardIII : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewControlleriii : UIViewController = mainStoryboardIII.instantiateViewController(withIdentifier: "DeadlineViewController") as UIViewController
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = initialViewControlleriii
-            self.window?.makeKeyAndVisible()
         }
         
         return true

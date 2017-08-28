@@ -9,18 +9,24 @@
 import UIKit
 
 class DatesTableViewController: UITableViewController {
+    
+    var storedDatesArray: [DeadlineItems] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        storedDatesArray = DeadlineItems.all()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject))
-        //self.navigationItem.rightBarButtonItem = addButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        storedDatesArray = DeadlineItems.all()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,18 +43,20 @@ class DatesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return storedDatesArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as UITableViewCell
+        let dateTitle = storedDatesArray[indexPath.row].dateTitle!
+        cell.textLabel?.text = dateTitle
+        let date = storedDatesArray[indexPath.row].date!
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .long
+        cell.detailTextLabel?.text = formatter.string(from: date)
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -94,5 +102,4 @@ class DatesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

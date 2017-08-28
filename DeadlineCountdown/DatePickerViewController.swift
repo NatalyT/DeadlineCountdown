@@ -23,10 +23,10 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         storedDateArray = DeadlineItems.all()
         datePicker.minimumDate = getMinDate()
-        if storedDateArray.count != 0 {
-            titleDate.text = storedDateArray[0].dateTitle!
-            datePicker.date = storedDateArray[0].date!
-        }
+        /*if storedDateArray.count != 0 {
+            titleDate.text = storedDateArray[storedDateArray.count-1].dateTitle!
+            datePicker.date = storedDateArray[storedDateArray.count-1].date!
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,16 +61,9 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         }
 
         storedDateArray = DeadlineItems.all()
-        let deadline: NSManagedObject
-        
-        if storedDateArray.count != 0 {
-            let item = storedDateArray[0]
-            deadline = item.coreDataItem!
-        } else {
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
-            deadline = NSManagedObject(entity: entity, insertInto: managedContext)
-        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
+        let deadline = NSManagedObject(entity: entity, insertInto: managedContext)
         
         do {
             deadline.setValue(date, forKeyPath: "data")
