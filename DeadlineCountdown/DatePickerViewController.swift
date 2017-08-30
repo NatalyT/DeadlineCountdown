@@ -14,6 +14,12 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var titleDate: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    @IBAction func saveDate(_ sender: Any) {
+        self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!)
+        self.titleDate.resignFirstResponder()
+        self.performSegue(withIdentifier: "unwindToDatesTableVC", sender: self)
+    }
+    
     var storedDate: NSManagedObject!
     var storedDateArray: [DeadlineItems] = []
     
@@ -42,17 +48,15 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        //let secondScene = segue.destination as! DeadlineViewController
         // Pass the selected object to the new view controller.
-        self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!)
-        self.titleDate.resignFirstResponder()
-    }
+            }
+    */
     
     func save(date: Date, titleOfDate: String) {
         
