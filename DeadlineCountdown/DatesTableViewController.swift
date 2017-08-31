@@ -62,14 +62,35 @@ class DatesTableViewController: UITableViewController {
         return cell
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            DeadlineItems.deleteOne(index: indexPath.row)
+            //self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.storedDatesArray = DeadlineItems.all()
+            tableView.reloadData()
+        }
+        delete.backgroundColor = .red
+        /*
+        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            print("edit at:\(indexPath)")
+        }
+        edit.backgroundColor = .orange
+        */
+        //return [delete, edit]
+        return [delete]
+    }
+    
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
