@@ -21,11 +21,13 @@ class DatesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         storedDatesArray = DeadlineItems.all()
+        //storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         storedDatesArray = DeadlineItems.all()
+        storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
     }
 
