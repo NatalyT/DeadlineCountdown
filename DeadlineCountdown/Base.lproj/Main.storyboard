@@ -42,9 +42,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="ZFO-Vh-Ybd" kind="show" id="Rsr-6w-nVB"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,6 +56,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ZFO-Vh-Ybd" kind="show" identifier="segueToDeadlineVC" id="osy-el-ojp"/>
+                        <segue destination="qFk-K8-A8I" kind="show" identifier="editDate" id="IV9-cQ-bHl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ua-GT-m4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,4 +184,7 @@
             <point key="canvasLocation" x="-824.79999999999995" y="130.88455772113943"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IV9-cQ-bHl"/>
+    </inferredMetricsTieBreakers>
 </document>

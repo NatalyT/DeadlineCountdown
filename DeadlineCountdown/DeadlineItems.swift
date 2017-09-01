@@ -19,7 +19,6 @@ class DeadlineItems {
         self.dateTitle = dateTitle
         self.date = date
         self.coreDataItem = coreDataItem
-        
     }
     
     class func all() -> [DeadlineItems] {
@@ -29,11 +28,13 @@ class DeadlineItems {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = appDelegate?.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Deadline")
+        
         do {
             storedDate = try managedContext!.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [NSManagedObject]
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
         for item in storedDate {
             let chosenDate = item.value(forKey: "data") as? Date
             let titleOfChosenDate = item.value(forKey: "titleDate") as? String
@@ -44,18 +45,16 @@ class DeadlineItems {
         return result
     }
     
-class func deleteAll(entity: String)
-    {
+    class func deleteAll(entity: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         fetchRequest.returnsObjectsAsFaults = false
         
-        do
-        {
+        do {
             let results = try managedContext.fetch(fetchRequest)
-            for managedObject in results
-            {
+            
+            for managedObject in results {
                 let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
                 managedContext.delete(managedObjectData)
             }
@@ -64,14 +63,13 @@ class func deleteAll(entity: String)
         }
     }
     
-    class func deleteOne(index: Int)
-    {
+    class func deleteOne(index: Int) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Deadline")
         fetchRequest.returnsObjectsAsFaults = false
-        do
-        {
+        
+        do {
             let results = try managedContext.fetch(fetchRequest)
             let managedObject = results[index]
             let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
@@ -80,9 +78,9 @@ class func deleteAll(entity: String)
                 try managedContext.save()
             } catch _ {
             }
-
-    } catch let error as NSError {
-    print("Delete data error : \(error) \(error.userInfo)")
+            
+        } catch let error as NSError {
+            print("Delete data error : \(error) \(error.userInfo)")
+        }
     }
-}
 }

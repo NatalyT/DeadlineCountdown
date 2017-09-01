@@ -20,19 +20,26 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "unwindToDatesTableVC", sender: self)
     }
     
-    var storedDate: NSManagedObject!
     var storedDateArray: [DeadlineItems] = []
+    var selectedDate: DeadlineItems!
+    var isEdit: Bool?
+    
+    // TODO: Get rid of these variables
+    var selectedDateTitle: String?
+    var selectedData: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         storedDateArray = DeadlineItems.all()
-        datePicker.minimumDate = getMinDate()
-        /*if storedDateArray.count != 0 {
-            titleDate.text = storedDateArray[storedDateArray.count-1].dateTitle!
-            datePicker.date = storedDateArray[storedDateArray.count-1].date!
-        }*/
+        if self.isEdit! {
+            titleDate.text = selectedDate.dateTitle!
+            datePicker.minimumDate = selectedDate.date!
+        } else {
+            titleDate.text = selectedDateTitle
+            datePicker.minimumDate = selectedData
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,41 +55,33 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-            }
-    */
-    
+ 
     func save(date: Date, titleOfDate: String) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-
-        storedDateArray = DeadlineItems.all()
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
-        let deadline = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        var deadline: NSManagedObject
+        
+        if self.isEdit! {
+            deadline = self.selectedDate.coreDataItem!
+        } else {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
+            deadline = NSManagedObject(entity: entity, insertInto: managedContext)
+        }
+        
+        deadline.setValue(date, forKeyPath: "data")
+        deadline.setValue(titleOfDate, forKey: "titleDate")
         
         do {
-            deadline.setValue(date, forKeyPath: "data")
-            deadline.setValue(titleOfDate, forKey: "titleDate")
-            
             try deadline.managedObjectContext?.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
-        }        
+        }
     }
     
-    private func getMinDate() -> Date {
-        var components = DateComponents()
-        components.day = 1
-        return Calendar.current.date(byAdding: components, to: Date())!
-    }
-
+    
 }

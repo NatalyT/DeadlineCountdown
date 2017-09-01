@@ -15,19 +15,18 @@ class DeadlineViewController: UIViewController {
     
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
-    var storedDate: [DeadlineItems] = []
-   
+    var selectedDate: DeadlineItems?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        storedDate = DeadlineItems.all()
-        let chosenDate = storedDate[storedDate.count-1].date
+        
+        let chosenDate = selectedDate?.date
         let deadline = DeadlineCalculator(chosenDate!).calculate()
-        deadlineLabel.text = storedDate[storedDate.count-1].dateTitle! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
+        deadlineLabel.text = (selectedDate?.dateTitle!)! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
         
-      let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
-       swipeRight.direction = .right
-     self.view.addGestureRecognizer(swipeRight)
-        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,23 +46,9 @@ class DeadlineViewController: UIViewController {
     }
     */
 
-  func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
-            //let datePickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "FirstViewController") as! DatesTableViewController
-            //self.present(datePickerViewController, animated: true, completion: nil)
-            //navigationController?.pushViewController(datePickerViewController, animated: true)
-           // _ = self.navigationController?.popToRootViewController(animated: true)
-            
-           
-            //let datePickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
-       // let vc = datePickerViewController.navigationController?.popToRootViewController(animated: false)
-           // print(vc as Any)
-           // self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
-            
-          _ = self.navigationController?.popToRootViewController(animated: true)
-           //self.dismiss(animated: false, completion: nil)
-            
-            
+            _ = self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }
