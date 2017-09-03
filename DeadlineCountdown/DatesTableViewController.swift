@@ -20,8 +20,6 @@ class DatesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        storedDatesArray = DeadlineItems.all()
-        //storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +50,15 @@ class DatesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as UITableViewCell
         
         let dateTitle = storedDatesArray[indexPath.row].dateTitle!
+        let date = storedDatesArray[indexPath.row].date!
+        
+        if date < Date() {
+            cell.textLabel?.textColor = UIColor.lightGray
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+        }
+        
         cell.textLabel?.text = dateTitle
         
-        let date = storedDatesArray[indexPath.row].date!
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .long
