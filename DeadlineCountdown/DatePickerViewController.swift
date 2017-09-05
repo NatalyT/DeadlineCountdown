@@ -33,7 +33,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
             titleDate.text = selectedDate?.dateTitle
             datePicker.date = (selectedDate?.date)!
         }
-        datePicker.minimumDate = getMinDate()
+        datePicker.minimumDate = NextDay.get()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,12 +75,5 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-    }
-    
-    private func getMinDate() -> Date {
-        var components = DateComponents()
-        components.day = 1
-        
-        return Calendar.current.date(byAdding: components, to: Date())!
     }
 }
