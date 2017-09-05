@@ -16,10 +16,10 @@ class DatesTableViewController: UITableViewController {
     @IBAction func unwindToDatesTableVC (segue: UIStoryboardSegue) {
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,24 +28,24 @@ class DatesTableViewController: UITableViewController {
         storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return storedDatesArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as UITableViewCell
         
@@ -79,13 +79,14 @@ class DatesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    
+        
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in DeadlineItems.deleteOne(index: indexPath.row)
-            self.storedDatesArray = DeadlineItems.all()
-            tableView.reloadData()
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            self.storedDatesArray[indexPath.row].delete()
+            self.storedDatesArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         delete.backgroundColor = .red
         
@@ -98,7 +99,7 @@ class DatesTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -112,28 +113,15 @@ class DatesTableViewController: UITableViewController {
         } else {
             let secondScene = segue.destination as! DatePickerViewController
             
-            // Pass the selected object to the new view controller.
-            if segue.identifier == "editDate" {
-                if let indexPath = sender {
-                    let selectedDate = storedDatesArray[(indexPath as AnyObject).row]
-                    secondScene.selectedDate = selectedDate
-                    secondScene.isEdit = true
-                }
+            if segue.identifier == "editDate", let indexPath = sender {
+                let selectedDate = storedDatesArray[(indexPath as AnyObject).row]
+                secondScene.selectedDate = selectedDate
+                secondScene.isEdit = true
             } else if segue.identifier == "segueToDatePickerVC" {
-                let selectedDateTitle = ""
-                let selectedData = getMinDate()
-                
-                secondScene.selectedDateTitle = selectedDateTitle
-                secondScene.selectedData = selectedData
+                let selectedDate: DeadlineItems? = nil
+                secondScene.selectedDate = selectedDate
                 secondScene.isEdit = false
             }
         }
-    }
-    
-    private func getMinDate() -> Date {
-        var components = DateComponents()
-        components.day = 1
-        
-        return Calendar.current.date(byAdding: components, to: Date())!
     }
 }

@@ -22,7 +22,7 @@ class DeadlineItems {
     }
     
     class func all() -> [DeadlineItems] {
-    
+        
         var result: [DeadlineItems] = []
         var storedDate: [NSManagedObject] = []
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -41,7 +41,7 @@ class DeadlineItems {
             let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, coreDataItem: item)
             result.append(deadlineItem)
         }
-
+        
         return result
     }
     
@@ -63,7 +63,7 @@ class DeadlineItems {
         }
     }
     
-    class func deleteOne(index: Int) {
+    func delete() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Deadline")
@@ -71,14 +71,16 @@ class DeadlineItems {
         
         do {
             let results = try managedContext.fetch(fetchRequest)
-            let managedObject = results[index]
-            let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
-            managedContext.delete(managedObjectData)
+            for managedObject in results {
+                let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
+                if managedObjectData == self.coreDataItem {
+                    managedContext.delete(managedObjectData)
+                }
+            }
             do {
                 try managedContext.save()
             } catch _ {
             }
-            
         } catch let error as NSError {
             print("Delete data error : \(error) \(error.userInfo)")
         }

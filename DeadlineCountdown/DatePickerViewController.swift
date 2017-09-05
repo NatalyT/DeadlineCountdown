@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class DatePickerViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var titleDate: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -21,12 +21,8 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     }
     
     var storedDateArray: [DeadlineItems] = []
-    var selectedDate: DeadlineItems!
+    var selectedDate: DeadlineItems?
     var isEdit: Bool?
-    
-    // TODO: Get rid of these variables
-    var selectedDateTitle: String?
-    var selectedData: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +30,12 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         storedDateArray = DeadlineItems.all()
         if self.isEdit! {
-            titleDate.text = selectedDate.dateTitle!
-            datePicker.minimumDate = selectedDate.date!
-        } else {
-            titleDate.text = selectedDateTitle
-            datePicker.minimumDate = selectedData
+            titleDate.text = selectedDate?.dateTitle
+            datePicker.date = (selectedDate?.date)!
         }
+        datePicker.minimumDate = getMinDate()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,8 +49,8 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
- 
+    
+    
     func save(date: Date, titleOfDate: String) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -66,7 +60,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         var deadline: NSManagedObject
         
         if self.isEdit! {
-            deadline = self.selectedDate.coreDataItem!
+            deadline = (self.selectedDate?.coreDataItem!)!
         } else {
             let managedContext = appDelegate.persistentContainer.viewContext
             let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
@@ -83,5 +77,10 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    private func getMinDate() -> Date {
+        var components = DateComponents()
+        components.day = 1
+        
+        return Calendar.current.date(byAdding: components, to: Date())!
+    }
 }
