@@ -19,6 +19,7 @@
 		C12E15811F38C26F00ED6F6F /* DeadlineItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12E15801F38C26F00ED6F6F /* DeadlineItems.swift */; };
 		C1418E181F4CBDAD009A8F41 /* DatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */; };
 		C15E17101F5F0FC4008B1CCB /* NextDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E170F1F5F0FC4008B1CCB /* NextDay.swift */; };
+		C15E17111F65B42E008B1CCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CBB1F213C810013D446 /* Main.storyboard */; };
 		C17A579A1F326BDB00A29908 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C17A57981F326BDB00A29908 /* Model.xcdatamodeld */; };
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
@@ -290,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15E17111F65B42E008B1CCB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
