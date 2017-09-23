@@ -13,11 +13,13 @@ import CoreData
 class DeadlineItems {
     var dateTitle: String?
     var date: Date?
+    var eventIdentificator: String?
     var coreDataItem: NSManagedObject?
     
-    init(dateTitle: String, date: Date, coreDataItem: NSManagedObject) {
+    init(dateTitle: String, date: Date, eventIdentificator: String, coreDataItem: NSManagedObject) {
         self.dateTitle = dateTitle
         self.date = date
+        self.eventIdentificator = eventIdentificator
         self.coreDataItem = coreDataItem
     }
     
@@ -38,7 +40,8 @@ class DeadlineItems {
         for item in storedDate {
             let chosenDate = item.value(forKey: "data") as? Date
             let titleOfChosenDate = item.value(forKey: "titleDate") as? String
-            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, coreDataItem: item)
+            let savedEventId = item.value(forKey: "eventId") as? String
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item)
             result.append(deadlineItem)
         }
         

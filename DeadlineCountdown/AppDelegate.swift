@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Clear the Database
-        // DeadlineItems.deleteAll(entity: "Deadline")
+         //DeadlineItems.deleteAll(entity: "Deadline")
         
         let storedDate = DeadlineItems.all()
         

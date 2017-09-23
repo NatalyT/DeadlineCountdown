@@ -24,6 +24,7 @@ class DatesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        CalendarEvents().checkCalendarAuthorizationStatus()
         storedDatesArray = DeadlineItems.all()
         storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
@@ -84,6 +85,8 @@ class DatesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            let idn = self.storedDatesArray[indexPath.row].eventIdentificator
+            CalendarEvents().removeEvent(savedEventId: idn!)
             self.storedDatesArray[indexPath.row].delete()
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
