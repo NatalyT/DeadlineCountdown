@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import EventKit
 
 class DatePickerViewController: UIViewController, UITextFieldDelegate {
     
@@ -58,17 +59,22 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate {
         }
         
         var deadline: NSManagedObject
+        var newEventId: String?
         
         if self.isEdit! {
             deadline = (self.selectedDate?.coreDataItem!)!
+            newEventId = self.selectedDate?.eventIdentificator
+            CalendarEvents().editEvent(savedEventId: newEventId!, title: titleOfDate, startDate: date, endDate: date)
         } else {
             let managedContext = appDelegate.persistentContainer.viewContext
             let entity = NSEntityDescription.entity(forEntityName: "Deadline", in: managedContext)!
             deadline = NSManagedObject(entity: entity, insertInto: managedContext)
+            newEventId = CalendarEvents().addEventToCalendar(title: titleOfDate, description: "", startDate: date, endDate: date)
         }
         
         deadline.setValue(date, forKeyPath: "data")
         deadline.setValue(titleOfDate, forKey: "titleDate")
+        deadline.setValue(newEventId, forKey: "eventId")
         
         do {
             try deadline.managedObjectContext?.save()

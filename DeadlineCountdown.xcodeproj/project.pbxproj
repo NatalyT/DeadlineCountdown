@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */; };
 		C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F121F2A6D1900ED612C /* DeadlineText.swift */; };
+		C115AC3E1F712885001747FC /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C115AC3D1F712885001747FC /* CalendarEvents.swift */; };
 		C11AF3741F33BDAF008B94C3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11AF3731F33BDAF008B94C3 /* CoreData.framework */; };
 		C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1289CB71F213C810013D446 /* AppDelegate.swift */; };
 		C1289CBD1F213C810013D446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CBB1F213C810013D446 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCalculator.swift; sourceTree = "<group>"; };
 		C1143F121F2A6D1900ED612C /* DeadlineText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineText.swift; sourceTree = "<group>"; };
+		C115AC3D1F712885001747FC /* CalendarEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
 		C11AF3731F33BDAF008B94C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C1289CB41F213C810013D446 /* DeadlineCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadlineCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CB71F213C810013D446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C17A57981F326BDB00A29908 /* Model.xcdatamodeld */,
 				C12E15801F38C26F00ED6F6F /* DeadlineItems.swift */,
 				C15E170F1F5F0FC4008B1CCB /* NextDay.swift */,
+				C115AC3D1F712885001747FC /* CalendarEvents.swift */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */,
 				C1418E181F4CBDAD009A8F41 /* DatesTableViewController.swift in Sources */,
 				C15E17101F5F0FC4008B1CCB /* NextDay.swift in Sources */,
+				C115AC3E1F712885001747FC /* CalendarEvents.swift in Sources */,
 				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,
 				C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */,
 				C12E15811F38C26F00ED6F6F /* DeadlineItems.swift in Sources */,
