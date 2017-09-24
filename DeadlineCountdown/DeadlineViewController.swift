@@ -46,7 +46,7 @@ class DeadlineViewController: UIViewController {
     }
     */
 
-    func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
