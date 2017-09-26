@@ -61,6 +61,7 @@
 		C1289CD71F213C820013D446 /* DeadlineCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineCountdownUITests.swift; sourceTree = "<group>"; };
 		C1289CD91F213C820013D446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C12E15801F38C26F00ED6F6F /* DeadlineItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineItems.swift; sourceTree = "<group>"; };
+		C12F0CB71F7ABE4300B9DCD9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesTableViewController.swift; sourceTree = "<group>"; };
 		C15E170F1F5F0FC4008B1CCB /* NextDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextDay.swift; sourceTree = "<group>"; };
 		C17A57991F326BDB00A29908 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		C1289CAB1F213C810013D446 = {
 			isa = PBXGroup;
 			children = (
+				C12F0CB71F7ABE4300B9DCD9 /* README.md */,
 				C1289CB61F213C810013D446 /* DeadlineCountdown */,
 				C1289CCB1F213C820013D446 /* DeadlineCountdownTests */,
 				C1289CD61F213C820013D446 /* DeadlineCountdownUITests */,
