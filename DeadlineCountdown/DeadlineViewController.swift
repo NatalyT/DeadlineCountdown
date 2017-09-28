@@ -20,6 +20,12 @@ class DeadlineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bg")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
         let chosenDate = selectedDate?.date
         let deadline = DeadlineCalculator(chosenDate!).calculate()
         deadlineLabel.text = (selectedDate?.dateTitle!)! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()

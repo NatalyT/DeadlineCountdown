@@ -48,6 +48,7 @@
 		C1143F121F2A6D1900ED612C /* DeadlineText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineText.swift; sourceTree = "<group>"; };
 		C115AC3D1F712885001747FC /* CalendarEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
 		C11AF3731F33BDAF008B94C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C11D7ECA1F7C0A7600F165CB /* DeadlineCountdown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeadlineCountdown.entitlements; sourceTree = "<group>"; };
 		C1289CB41F213C810013D446 /* DeadlineCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadlineCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1289CB71F213C810013D446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1289CBC1F213C810013D446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		C1289CB61F213C810013D446 /* DeadlineCountdown */ = {
 			isa = PBXGroup;
 			children = (
+				C11D7ECA1F7C0A7600F165CB /* DeadlineCountdown.entitlements */,
 				C1289CB71F213C810013D446 /* AppDelegate.swift */,
 				C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */,
 				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
@@ -236,7 +238,22 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
 							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 						};
