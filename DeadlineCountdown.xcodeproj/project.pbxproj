@@ -24,6 +24,7 @@
 		C17A579A1F326BDB00A29908 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C17A57981F326BDB00A29908 /* Model.xcdatamodeld */; };
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
+		C1B891521F8164E300AD73A7 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B891511F8164E300AD73A7 /* InsetLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C17A57991F326BDB00A29908 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
+		C1B891511F8164E300AD73A7 /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */,
 				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
 				C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */,
+				C1B891511F8164E300AD73A7 /* InsetLabel.swift */,
 				C1289CBB1F213C810013D446 /* Main.storyboard */,
 				C1289CBE1F213C810013D446 /* Assets.xcassets */,
 				C1289CC01F213C810013D446 /* LaunchScreen.storyboard */,
@@ -334,6 +337,7 @@
 				C1418E181F4CBDAD009A8F41 /* DatesTableViewController.swift in Sources */,
 				C15E17101F5F0FC4008B1CCB /* NextDay.swift in Sources */,
 				C115AC3E1F712885001747FC /* CalendarEvents.swift in Sources */,
+				C1B891521F8164E300AD73A7 /* InsetLabel.swift in Sources */,
 				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,
 				C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */,
 				C12E15811F38C26F00ED6F6F /* DeadlineItems.swift in Sources */,

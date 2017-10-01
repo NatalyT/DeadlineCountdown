@@ -11,7 +11,7 @@ import CoreData
 
 class DeadlineViewController: UIViewController {
 
-    @IBOutlet weak var deadlineLabel: UILabel!
+    @IBOutlet weak var deadlineLabel: InsetLabel!
     
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
@@ -26,6 +26,8 @@ class DeadlineViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
+        deadlineLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        
         let chosenDate = selectedDate?.date
         let deadline = DeadlineCalculator(chosenDate!).calculate()
         deadlineLabel.text = (selectedDate?.dateTitle!)! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
@@ -39,7 +41,6 @@ class DeadlineViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
