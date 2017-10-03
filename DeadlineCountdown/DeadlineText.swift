@@ -21,20 +21,20 @@ class DeadlineText {
     func toString() -> String {
         var parts = [String]()
         if (date.years > 0) {
-            parts.append("\(date.years) Year(s)")
+            parts.append("\(date.years)y")
         }
         
         if (date.months > 0) {
-            parts.append("\(date.months) Month(s)")
+            parts.append("\(date.months)m")
         }
         
         if (date.days > 0) {
-            parts.append("\(date.days) Day(s)")
+            parts.append("\(date.days)d")
         }
         
         if (parts.isEmpty) {
             return "Today is Deadline"
         }
-        return parts.joined(separator: " and ")
+        return parts.joined(separator: "   ")
     }
 }

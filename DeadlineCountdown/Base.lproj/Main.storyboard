@@ -140,28 +140,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-VA-8JX" customClass="InsetLabel" customModule="DeadlineCountdown" customModuleProvider="target">
-                                <rect key="frame" x="98.5" y="316.5" width="178.5" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ndA-e8-ZDB">
+                                <rect key="frame" x="36" y="295" width="303" height="76.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateTitle Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="400" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-70-kqj" customClass="InsetLabel" customModule="DeadlineCountdown" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="386" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-VA-8JX" customClass="InsetLabel" customModule="DeadlineCountdown" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="33.5" width="303" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PPe-VA-8JX" firstAttribute="centerX" secondItem="3XO-So-cj4" secondAttribute="centerX" id="NQZ-dK-vRY"/>
-                            <constraint firstItem="PPe-VA-8JX" firstAttribute="centerY" secondItem="3XO-So-cj4" secondAttribute="centerY" id="gr3-ae-Oif"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="PPe-VA-8JX" secondAttribute="trailing" id="kaU-0N-T7c"/>
-                            <constraint firstItem="PPe-VA-8JX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3XO-So-cj4" secondAttribute="leadingMargin" id="sNd-VD-gSU"/>
+                            <constraint firstItem="ndA-e8-ZDB" firstAttribute="leading" secondItem="3XO-So-cj4" secondAttribute="leadingMargin" constant="20" id="7CJ-TY-YgA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndA-e8-ZDB" secondAttribute="trailing" constant="20" id="Xhh-UP-efS"/>
+                            <constraint firstItem="ndA-e8-ZDB" firstAttribute="top" secondItem="9EH-HH-bTc" secondAttribute="bottom" constant="231" id="aGO-XN-RbM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateTitleLabel" destination="nP2-70-kqj" id="ncv-pt-GTa"/>
                         <outlet property="deadlineLabel" destination="PPe-VA-8JX" id="eZR-Vr-9jG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvJ-97-Zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1388" y="649"/>
+            <point key="canvasLocation" x="1388" y="648.12593703148434"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oDp-Hk-ozg">

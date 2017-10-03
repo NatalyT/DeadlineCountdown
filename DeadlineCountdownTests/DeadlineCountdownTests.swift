@@ -34,31 +34,31 @@ class DeadlineCountdownTests: XCTestCase {
     func testDisplayingAllParts() {
         
         textUnderTest = DeadlineText(years: 3, months: 5, days: 9)
-        XCTAssertEqual(textUnderTest.toString(), "3 Year(s) and 5 Month(s) and 9 Day(s)")
+        XCTAssertEqual(textUnderTest.toString(), "3y   5m   9d")
     }
     
     func testDisplayingYearsAndDays() {
         
         textUnderTest = DeadlineText(years: 5, months: 0, days: 15)
-        XCTAssertEqual(textUnderTest.toString(), "5 Year(s) and 15 Day(s)")
+        XCTAssertEqual(textUnderTest.toString(), "5y   15d")
     }
 
     func testDisplayingMonthsAndDays() {
         
         textUnderTest = DeadlineText(years: 0, months: 7, days: 3)
-        XCTAssertEqual(textUnderTest.toString(), "7 Month(s) and 3 Day(s)")
+        XCTAssertEqual(textUnderTest.toString(), "7m   3d")
     }
     
     func testDisplayingYears() {
         
         textUnderTest = DeadlineText(years: 25, months: 0, days: 0)
-        XCTAssertEqual(textUnderTest.toString(), "25 Year(s)")
+        XCTAssertEqual(textUnderTest.toString(), "25y")
     }
     
     func testDisplayingDays() {
         
         textUnderTest = DeadlineText(years: 0, months: 0, days: 10)
-        XCTAssertEqual(textUnderTest.toString(), "10 Day(s)")
+        XCTAssertEqual(textUnderTest.toString(), "10d")
     }
     
 }

@@ -12,6 +12,8 @@ import CoreData
 class DeadlineViewController: UIViewController {
 
     @IBOutlet weak var deadlineLabel: InsetLabel!
+    @IBOutlet weak var dateTitleLabel: InsetLabel!
+    
     
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
@@ -27,10 +29,12 @@ class DeadlineViewController: UIViewController {
         self.view.backgroundColor = UIColor(patternImage: image)
         
         deadlineLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        dateTitleLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
         
         let chosenDate = selectedDate?.date
         let deadline = DeadlineCalculator(chosenDate!).calculate()
-        deadlineLabel.text = (selectedDate?.dateTitle!)! + ": " + DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
+        dateTitleLabel.text = (selectedDate?.dateTitle!)! + " in"
+        deadlineLabel.text = DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
