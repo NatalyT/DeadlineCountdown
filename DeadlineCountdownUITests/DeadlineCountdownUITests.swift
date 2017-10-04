@@ -36,7 +36,7 @@ class DeadlineCountdownUITests: XCTestCase {
         // Use recording to get started writing UI tests.
             app.navigationBars["DeadlinesList"].buttons["Add"].tap()
             
-            let titleTextField = app.textFields["type date title"]
+            let titleTextField = app.textFields["type date title                    "]
             titleTextField.tap()
             titleTextField.typeText("Neues Datum")
             
@@ -103,11 +103,14 @@ class DeadlineCountdownUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         addingNewDate()
         
-        let tablesQuery = app.tables.cells
-        tablesQuery.element(boundBy: 0).tap()
+        app.tables.staticTexts["Modified Date"].tap()
+        let dateTitleLabelElement = app.staticTexts["Modified Date in"]
+        let deadlineLabelElement = app.staticTexts["2m   21d"]
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssert(app.staticTexts.element.exists)
+        XCTAssertEqual(dateTitleLabelElement.exists, true)
+        XCTAssertEqual(deadlineLabelElement.exists, true)
+        
     }
     
 }
