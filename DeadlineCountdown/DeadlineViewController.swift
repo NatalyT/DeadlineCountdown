@@ -7,13 +7,18 @@
 //
 
 import UIKit
-import CoreData
+//import CoreData
+//import Crashlytics
 
 class DeadlineViewController: UIViewController {
 
     @IBOutlet weak var deadlineLabel: InsetLabel!
     @IBOutlet weak var dateTitleLabel: InsetLabel!
     
+   /* @IBAction func crashButtonTapped(_ sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
+    }
+    */
     
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
@@ -28,13 +33,23 @@ class DeadlineViewController: UIViewController {
         UIGraphicsEndImageContext()
         self.view.backgroundColor = UIColor(patternImage: image)
         
+       /* let button = UIButton(type: .roundedRect)
+        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+        button.setTitle("Crash", for: [])
+        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+        view.addSubview(button)*/
+        
         deadlineLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
         dateTitleLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
         
         let chosenDate = selectedDate?.date
         let deadline = DeadlineCalculator(chosenDate!).calculate()
-        dateTitleLabel.text = (selectedDate?.dateTitle!)! + " in"
         deadlineLabel.text = DeadlineText(years: deadline.years, months: deadline.months, days: deadline.days).toString()
+        if deadlineLabel.text == "is Today" {
+            dateTitleLabel.text = (selectedDate?.dateTitle!)!
+        } else {
+            dateTitleLabel.text = (selectedDate?.dateTitle!)! + " in"
+        }
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right

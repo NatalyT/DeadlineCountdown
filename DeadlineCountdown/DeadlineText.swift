@@ -33,7 +33,7 @@ class DeadlineText {
         }
         
         if (parts.isEmpty) {
-            return "Today is Deadline"
+            return "is Today"
         }
         return parts.joined(separator: "   ")
     }

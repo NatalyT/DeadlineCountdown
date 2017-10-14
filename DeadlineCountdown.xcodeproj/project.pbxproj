@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C112495E1F90F14400AB65E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */; };
 		C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */; };
 		C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F121F2A6D1900ED612C /* DeadlineText.swift */; };
 		C115AC3E1F712885001747FC /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C115AC3D1F712885001747FC /* CalendarEvents.swift */; };
@@ -25,6 +26,8 @@
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
 		C1B891521F8164E300AD73A7 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B891511F8164E300AD73A7 /* InsetLabel.swift */; };
+		C1DDCADA1F897E160044451F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDCAD91F897DF30044451F /* Crashlytics.framework */; };
+		C1DDCADB1F897E1B0044451F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDCAD81F897DF30044451F /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C110708F1F8A74A30073E5F8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.24.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCalculator.swift; sourceTree = "<group>"; };
 		C1143F121F2A6D1900ED612C /* DeadlineText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineText.swift; sourceTree = "<group>"; };
 		C115AC3D1F712885001747FC /* CalendarEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
@@ -70,6 +75,8 @@
 		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
 		C1B891511F8164E300AD73A7 /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		C1DDCAD81F897DF30044451F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		C1DDCAD91F897DF30044451F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +84,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C112495E1F90F14400AB65E6 /* GoogleMobileAds.framework in Frameworks */,
 				C11AF3741F33BDAF008B94C3 /* CoreData.framework in Frameworks */,
+				C1DDCADA1F897E160044451F /* Crashlytics.framework in Frameworks */,
+				C1DDCADB1F897E1B0044451F /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +111,7 @@
 		C11AF3721F33BDAF008B94C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */,
 				C11AF3731F33BDAF008B94C3 /* CoreData.framework */,
 			);
 			name = Frameworks;
@@ -109,6 +120,7 @@
 		C1289CAB1F213C810013D446 = {
 			isa = PBXGroup;
 			children = (
+				C110708F1F8A74A30073E5F8 /* GoogleMobileAds.framework */,
 				C12F0CB71F7ABE4300B9DCD9 /* README.md */,
 				C1289CB61F213C810013D446 /* DeadlineCountdown */,
 				C1289CCB1F213C820013D446 /* DeadlineCountdownTests */,
@@ -132,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				C11D7ECA1F7C0A7600F165CB /* DeadlineCountdown.entitlements */,
+				C1DDCAD91F897DF30044451F /* Crashlytics.framework */,
+				C1DDCAD81F897DF30044451F /* Fabric.framework */,
 				C1289CB71F213C810013D446 /* AppDelegate.swift */,
 				C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */,
 				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
@@ -179,6 +193,7 @@
 				C1289CB01F213C810013D446 /* Sources */,
 				C1289CB11F213C810013D446 /* Frameworks */,
 				C1289CB21F213C810013D446 /* Resources */,
+				C11910E41F8977CF0046C62B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -325,6 +340,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C11910E41F8977CF0046C62B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run cfcd7e989014c45b8c2df176792c597ec27e682b 54b06f5e54a6d2962babfb9bd73b8230b45b4673dff13b8877ea335ccefe4060";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C1289CB01F213C810013D446 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -398,7 +429,7 @@
 		C1289CDA1F213C820013D446 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -454,7 +485,7 @@
 		C1289CDB1F213C820013D446 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -503,8 +534,15 @@
 		C1289CDD1F213C820013D446 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9487RPB949;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DeadlineCountdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DeadlineCountdown;
@@ -517,8 +555,15 @@
 		C1289CDE1F213C820013D446 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9487RPB949;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = DeadlineCountdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.DeadlineCountdown;
