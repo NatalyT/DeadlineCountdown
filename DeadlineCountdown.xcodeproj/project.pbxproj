@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C112495E1F90F14400AB65E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */; };
+		C11249621F92543500AB65E6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249611F92543500AB65E6 /* EventKit.framework */; };
+		C11249641F92544C00AB65E6 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249631F92544C00AB65E6 /* EventKitUI.framework */; };
+		C11249661F92545C00AB65E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249651F92545B00AB65E6 /* AVFoundation.framework */; };
+		C11249681F92546A00AB65E6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249671F92546A00AB65E6 /* AdSupport.framework */; };
+		C112496A1F92547D00AB65E6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249691F92547D00AB65E6 /* AudioToolbox.framework */; };
+		C112496C1F9254AA00AB65E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112496B1F9254AA00AB65E6 /* CoreGraphics.framework */; };
+		C112496E1F9254C300AB65E6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112496D1F9254C300AB65E6 /* CoreTelephony.framework */; };
+		C11249701F9254D600AB65E6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112496F1F9254D600AB65E6 /* CoreMedia.framework */; };
+		C11249721F92550200AB65E6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249711F92550200AB65E6 /* MessageUI.framework */; };
+		C11249741F92551900AB65E6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249731F92551900AB65E6 /* StoreKit.framework */; };
+		C11249761F92552A00AB65E6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249751F92552A00AB65E6 /* SystemConfiguration.framework */; };
 		C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */; };
 		C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1143F121F2A6D1900ED612C /* DeadlineText.swift */; };
 		C115AC3E1F712885001747FC /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C115AC3D1F712885001747FC /* CalendarEvents.swift */; };
@@ -50,6 +61,17 @@
 /* Begin PBXFileReference section */
 		C110708F1F8A74A30073E5F8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.24.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		C11249611F92543500AB65E6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		C11249631F92544C00AB65E6 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		C11249651F92545B00AB65E6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C11249671F92546A00AB65E6 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		C11249691F92547D00AB65E6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C112496B1F9254AA00AB65E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C112496D1F9254C300AB65E6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C112496F1F9254D600AB65E6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C11249711F92550200AB65E6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C11249731F92551900AB65E6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C11249751F92552A00AB65E6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C1143F101F2A2B5C00ED612C /* DeadlineCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCalculator.swift; sourceTree = "<group>"; };
 		C1143F121F2A6D1900ED612C /* DeadlineText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineText.swift; sourceTree = "<group>"; };
 		C115AC3D1F712885001747FC /* CalendarEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
@@ -84,6 +106,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11249761F92552A00AB65E6 /* SystemConfiguration.framework in Frameworks */,
+				C11249741F92551900AB65E6 /* StoreKit.framework in Frameworks */,
+				C11249721F92550200AB65E6 /* MessageUI.framework in Frameworks */,
+				C11249701F9254D600AB65E6 /* CoreMedia.framework in Frameworks */,
+				C112496E1F9254C300AB65E6 /* CoreTelephony.framework in Frameworks */,
+				C112496C1F9254AA00AB65E6 /* CoreGraphics.framework in Frameworks */,
+				C112496A1F92547D00AB65E6 /* AudioToolbox.framework in Frameworks */,
+				C11249681F92546A00AB65E6 /* AdSupport.framework in Frameworks */,
+				C11249661F92545C00AB65E6 /* AVFoundation.framework in Frameworks */,
+				C11249641F92544C00AB65E6 /* EventKitUI.framework in Frameworks */,
+				C11249621F92543500AB65E6 /* EventKit.framework in Frameworks */,
 				C112495E1F90F14400AB65E6 /* GoogleMobileAds.framework in Frameworks */,
 				C11AF3741F33BDAF008B94C3 /* CoreData.framework in Frameworks */,
 				C1DDCADA1F897E160044451F /* Crashlytics.framework in Frameworks */,
@@ -111,6 +144,17 @@
 		C11AF3721F33BDAF008B94C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C11249751F92552A00AB65E6 /* SystemConfiguration.framework */,
+				C11249731F92551900AB65E6 /* StoreKit.framework */,
+				C11249711F92550200AB65E6 /* MessageUI.framework */,
+				C112496F1F9254D600AB65E6 /* CoreMedia.framework */,
+				C112496D1F9254C300AB65E6 /* CoreTelephony.framework */,
+				C112496B1F9254AA00AB65E6 /* CoreGraphics.framework */,
+				C11249691F92547D00AB65E6 /* AudioToolbox.framework */,
+				C11249671F92546A00AB65E6 /* AdSupport.framework */,
+				C11249651F92545B00AB65E6 /* AVFoundation.framework */,
+				C11249631F92544C00AB65E6 /* EventKitUI.framework */,
+				C11249611F92543500AB65E6 /* EventKit.framework */,
 				C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */,
 				C11AF3731F33BDAF008B94C3 /* CoreData.framework */,
 			);
@@ -272,6 +316,9 @@
 								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
 								enabled = 0;
 							};
 						};
@@ -457,6 +504,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -513,6 +561,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -539,6 +588,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9487RPB949;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -560,6 +610,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9487RPB949;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
