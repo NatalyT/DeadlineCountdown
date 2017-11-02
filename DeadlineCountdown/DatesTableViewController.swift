@@ -25,9 +25,6 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Init AdMob banner
-        initAdMobBanner()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +33,8 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         storedDatesArray = DeadlineItems.all()
         storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
+        // Init AdMob banner
+        initAdMobBanner()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,6 +90,14 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return adMobBannerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return adMobBannerView.frame.height
+    }
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
             let idn = self.storedDatesArray[indexPath.row].eventIdentificator
@@ -142,47 +149,26 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         if UIDevice.current.userInterfaceIdiom == .phone {
             // iPhone
             adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
-            adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 320, height: 50)
         } else  {
             // iPad
             adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
-            adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 468, height: 60)
         }
         
         adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
         adMobBannerView.rootViewController = self
         adMobBannerView.delegate = self
-        view.addSubview(adMobBannerView)
         
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
         adMobBannerView.load(request)
     }
     
-    
-    // Hide the banner
-    func hideBanner(_ banner: UIView) {
-        UIView.beginAnimations("hideBanner", context: nil)
-        banner.frame = CGRect(x: view.frame.size.width/2 - banner.frame.size.width/2, y: view.frame.size.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
-        UIView.commitAnimations()
-        banner.isHidden = true
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("Banner loaded successfully")
     }
     
-    // Show the banner
-    func showBanner(_ banner: UIView) {
-        UIView.beginAnimations("showBanner", context: nil)
-        banner.frame = CGRect(x: view.frame.size.width/2 - banner.frame.size.width/2, y: view.frame.size.height - banner.frame.size.height, width: banner.frame.size.width, height: banner.frame.size.height)
-        UIView.commitAnimations()
-        banner.isHidden = false
-    }
-    
-    // AdMob banner available
-    func adViewDidReceiveAd(_ view: GADBannerView) {
-        showBanner(adMobBannerView)
-    }
-    
-    // NO AdMob banner available
-    func adView(_ view: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        hideBanner(adMobBannerView)
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("Fail to receive ads")
+        print(error)
     }
 }
