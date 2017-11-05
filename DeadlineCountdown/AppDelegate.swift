@@ -26,10 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9691910327507240~7962045576")
         
         // Clear the Database
+        //var storedDate = DeadlineItems.all()
+        //CalendarEvents().removeAllEvents(storedDatesArray: storedDate)
         //DeadlineItems.deleteAll(entity: "Deadline")
+        //storedDate = DeadlineItems.all()
         
         let storedDate = DeadlineItems.all()
-        
         print("\(storedDate.count)")
         for item in storedDate {
             print("---\(String(describing: item.dateTitle))  \(String(describing: item.date)))")

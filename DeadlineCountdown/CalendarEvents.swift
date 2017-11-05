@@ -73,6 +73,14 @@ class CalendarEvents {
         }
     }
     
+    func removeAllEvents(storedDatesArray: [DeadlineItems]) {
+        
+        for item in storedDatesArray {
+            let idn = item.eventIdentificator
+            CalendarEvents().removeEvent(savedEventId: idn!)
+        }
+    }
+    
     func editEvent(savedEventId: String, title: String, startDate: Date, endDate: Date) {
         guard EKEventStore.authorizationStatus(for: .event) == EKAuthorizationStatus.authorized else {
             return
