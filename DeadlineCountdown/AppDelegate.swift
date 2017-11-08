@@ -8,8 +8,8 @@
 
 import UIKit
 import CoreData
-//import Fabric
-//import Crashlytics
+import Fabric
+import Crashlytics
 import GoogleMobileAds
 
 @UIApplicationMain
@@ -19,17 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.self])
         
         // Initialize the Google Mobile Ads SDK.
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9691910327507240~7962045576")
         
         // Clear the Database
-        //var storedDate = DeadlineItems.all()
-        //CalendarEvents().removeAllEvents(storedDatesArray: storedDate)
-        //DeadlineItems.deleteAll(entity: "Deadline")
-        //storedDate = DeadlineItems.all()
+        /*var storedDate = DeadlineItems.all()
+         CalendarEvents().removeAllEvents(storedDatesArray: storedDate)
+         DeadlineItems.deleteAll(entity: "Deadline")
+         storedDate = DeadlineItems.all()
+         */
         
         let storedDate = DeadlineItems.all()
         print("\(storedDate.count)")
