@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C112495E1F90F14400AB65E6 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */; };
 		C11249621F92543500AB65E6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249611F92543500AB65E6 /* EventKit.framework */; };
 		C11249641F92544C00AB65E6 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249631F92544C00AB65E6 /* EventKitUI.framework */; };
 		C11249661F92545C00AB65E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249651F92545B00AB65E6 /* AVFoundation.framework */; };
@@ -37,6 +36,7 @@
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
 		C1B891521F8164E300AD73A7 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B891511F8164E300AD73A7 /* InsetLabel.swift */; };
+		C1D5757D1FB30CA90077CC70 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D5757B1FB30C960077CC70 /* GoogleMobileAds.framework */; };
 		C1DDCADA1F897E160044451F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDCAD91F897DF30044451F /* Crashlytics.framework */; };
 		C1DDCADB1F897E1B0044451F /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDCAD81F897DF30044451F /* Fabric.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +97,7 @@
 		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
 		C1B891511F8164E300AD73A7 /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		C1D5757B1FB30C960077CC70 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.25.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		C1DDCAD81F897DF30044451F /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		C1DDCAD91F897DF30044451F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -117,7 +118,7 @@
 				C11249661F92545C00AB65E6 /* AVFoundation.framework in Frameworks */,
 				C11249641F92544C00AB65E6 /* EventKitUI.framework in Frameworks */,
 				C11249621F92543500AB65E6 /* EventKit.framework in Frameworks */,
-				C112495E1F90F14400AB65E6 /* GoogleMobileAds.framework in Frameworks */,
+				C1D5757D1FB30CA90077CC70 /* GoogleMobileAds.framework in Frameworks */,
 				C11AF3741F33BDAF008B94C3 /* CoreData.framework in Frameworks */,
 				C1DDCADA1F897E160044451F /* Crashlytics.framework in Frameworks */,
 				C1DDCADB1F897E1B0044451F /* Fabric.framework in Frameworks */,
@@ -144,6 +145,7 @@
 		C11AF3721F33BDAF008B94C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1D5757B1FB30C960077CC70 /* GoogleMobileAds.framework */,
 				C11249751F92552A00AB65E6 /* SystemConfiguration.framework */,
 				C11249731F92551900AB65E6 /* StoreKit.framework */,
 				C11249711F92550200AB65E6 /* MessageUI.framework */,
