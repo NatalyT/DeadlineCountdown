@@ -16,6 +16,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     
     @IBOutlet weak var titleDate: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var scrollView1: UIScrollView!
     
     @IBAction func saveDate(_ sender: Any) {
         self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!)
@@ -33,6 +34,8 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView1.contentSize = CGSize(width: self.view.frame.width, height: 600)
         
         // Init AdMob banner
         initAdMobBanner()
@@ -59,7 +62,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
     
     func save(date: Date, titleOfDate: String) {
         
@@ -94,26 +96,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     
     // MARK: -  ADMOB BANNER
     func initAdMobBanner() {
-        /*
-         if UIDevice.current.userInterfaceIdiom == .phone {
-         // iPhone
-         adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
-         adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 320, height: 50)
-         } else  {
-         // iPad
-         adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
-         adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 468, height: 60)
-         }
-         
-         adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
-         adMobBannerView.rootViewController = self
-         adMobBannerView.delegate = self
-         view.addSubview(adMobBannerView)
-         
-         let request = GADRequest()
-         request.testDevices = [kGADSimulatorID]
-         adMobBannerView.load(request)*/
-        
         // Instantiate the banner view with your desired banner size.
         adMobBannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(adMobBannerView)
@@ -121,7 +103,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
         // Set the ad unit ID to your own ad unit ID here.
         adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
         
-        //adMobBannerView.load(GADRequest())
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
         adMobBannerView.load(request)
@@ -168,6 +149,5 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
                                               multiplier: 1,
                                               constant: 0))
     }
-    
 }
 

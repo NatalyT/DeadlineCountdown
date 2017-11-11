@@ -13,14 +13,14 @@ import GoogleMobileAds
 import AudioToolbox
 
 class DeadlineViewController: UIViewController, GADBannerViewDelegate {
-
+    
     @IBOutlet weak var deadlineLabel: InsetLabel!
     @IBOutlet weak var dateTitleLabel: InsetLabel!
     
-   /* @IBAction func crashButtonTapped(_ sender: AnyObject) {
-        Crashlytics.sharedInstance().crash()
-    }
-    */
+    /* @IBAction func crashButtonTapped(_ sender: AnyObject) {
+     Crashlytics.sharedInstance().crash()
+     }
+     */
     
     private var swipeGestureRecognizer: UISwipeGestureRecognizer?
     
@@ -30,23 +30,24 @@ class DeadlineViewController: UIViewController, GADBannerViewDelegate {
     var adMobBannerView: GADBannerView!
     let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
     
+    var bgImage = UIImage()
+    var bgImageView = UIImageView()
+    var bgImageName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Init AdMob banner
         initAdMobBanner()
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "bg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        self.view.backgroundColor = UIColor(patternImage: image)
+        bgImageName = "bg"
+        setBackgroundImage()
         
-       /* let button = UIButton(type: .roundedRect)
-        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-        button.setTitle("Crash", for: [])
-        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-        view.addSubview(button)*/
+        /* let button = UIButton(type: .roundedRect)
+         button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+         button.setTitle("Crash", for: [])
+         button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+         view.addSubview(button)*/
         
         deadlineLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
         dateTitleLabel.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -69,17 +70,39 @@ class DeadlineViewController: UIViewController, GADBannerViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func setBackgroundImage() {
+        if bgImageName > "" {
+            bgImageView.removeFromSuperview()
+            bgImage = UIImage(named: bgImageName)!
+            bgImageView = UIImageView(frame: self.view.bounds)
+            bgImageView.image = bgImage
+            self.view.addSubview(bgImageView)
+            self.view.sendSubview(toBack: bgImageView)
+        }
     }
-    */
-
+    
+    // detect device orientation changes
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        if UIDevice.current.orientation.isLandscape {
+            print("rotated device to landscape")
+            setBackgroundImage()
+        } else {
+            print("rotated device to portrait")
+            setBackgroundImage()
+        }
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             _ = self.navigationController?.popToRootViewController(animated: true)
@@ -88,26 +111,6 @@ class DeadlineViewController: UIViewController, GADBannerViewDelegate {
     
     // MARK: -  ADMOB BANNER
     func initAdMobBanner() {
-        /*
-         if UIDevice.current.userInterfaceIdiom == .phone {
-         // iPhone
-         adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
-         adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 320, height: 50)
-         } else  {
-         // iPad
-         adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
-         adMobBannerView.frame = CGRect(x: 0, y: view.frame.size.height, width: 468, height: 60)
-         }
-         
-         adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
-         adMobBannerView.rootViewController = self
-         adMobBannerView.delegate = self
-         view.addSubview(adMobBannerView)
-         
-         let request = GADRequest()
-         request.testDevices = [kGADSimulatorID]
-         adMobBannerView.load(request)*/
-        
         // Instantiate the banner view with your desired banner size.
         adMobBannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(adMobBannerView)
