@@ -11,6 +11,7 @@ import CoreData
 import Fabric
 import Crashlytics
 import GoogleMobileAds
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize the Google Mobile Ads SDK.
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9691910327507240~7962045576")
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
         
         // Clear the Database
         /*var storedDate = DeadlineItems.all()
@@ -111,3 +118,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
+

@@ -20,6 +20,9 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     
     @IBAction func saveDate(_ sender: Any) {
         self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!)
+        
+        LocalNotifications().create(selectedDate: self.datePicker.date, titleOfDate: self.titleDate.text!)
+        
         self.titleDate.resignFirstResponder()
         self.performSegue(withIdentifier: "unwindToDatesTableVC", sender: self)
     }
