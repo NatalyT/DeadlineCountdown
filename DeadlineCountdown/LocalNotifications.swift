@@ -24,8 +24,10 @@ class LocalNotifications {
     
     func scheduleNotification(at date: Date, titleOfDate: String, days: Int) {
         let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents(in: .current, from: date)
-        let newComponents = DateComponents(calendar: calendar, timeZone: .current, year: components.year, month: components.month, day: components.day)
+        var components = calendar.dateComponents(in: .current, from: date)
+        components.hour = 9
+        components.minute = 0
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, year: components.year, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         
