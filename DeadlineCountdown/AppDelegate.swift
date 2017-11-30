@@ -14,7 +14,7 @@ import GoogleMobileAds
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Notification access denied.")
             }
         }
+        
+        UNUserNotificationCenter.current().delegate = self
         
         // Clear the Database
         /*var storedDate = DeadlineItems.all()

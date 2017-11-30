@@ -25,7 +25,7 @@ class LocalNotifications {
     func scheduleNotification(at date: Date, titleOfDate: String, days: Int) {
         let calendar = Calendar(identifier: .gregorian)
         var components = calendar.dateComponents(in: .current, from: date)
-        components.hour = 9
+        components.hour = 8
         components.minute = 0
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, year: components.year, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
         
@@ -35,7 +35,7 @@ class LocalNotifications {
         
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        //UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(request) {(error) in
             if let error = error {
                 print("Uh oh! We had an error: \(error)")
