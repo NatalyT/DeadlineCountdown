@@ -30,7 +30,7 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         CalendarEvents().checkCalendarAuthorizationStatus()
-        storedDatesArray = DeadlineItems.all()
+        storedDatesArray = DeadlineItems.all(status: NSNumber(value: false))
         storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
         // Init AdMob banner
@@ -99,21 +99,20 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
-            let idn = self.storedDatesArray[indexPath.row].eventIdentificator
-            CalendarEvents().removeEvent(savedEventId: idn!)
-            self.storedDatesArray[indexPath.row].delete()
+        let archive = UITableViewRowAction(style: .default, title: "Archive") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            self.storedDatesArray[indexPath.row].archive()
+            self.storedDatesArray[indexPath.row].archived = true
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        delete.backgroundColor = .red
+        archive.backgroundColor = .blue
         
         let edit = UITableViewRowAction(style: .default, title: "Edit") { (action:UITableViewRowAction, indexPath:IndexPath) in
             self.performSegue(withIdentifier: "editDate", sender: indexPath)
         }
         edit.backgroundColor = .orange
         
-        return [delete, edit]
+        return [archive, edit]
     }
     
     // MARK: - Navigation

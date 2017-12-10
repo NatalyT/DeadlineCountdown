@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().delegate = self
         
         // Clear the Database
-        /*var storedDate = DeadlineItems.all()
+         /*var storedDate = DeadlineItems.all()
          CalendarEvents().removeAllEvents(storedDatesArray: storedDate)
          DeadlineItems.deleteAll(entity: "Deadline")
          storedDate = DeadlineItems.all()

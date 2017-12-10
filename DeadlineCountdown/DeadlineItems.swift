@@ -51,6 +51,34 @@ class DeadlineItems {
         return result
     }
     
+    class func all(status: NSNumber) -> [DeadlineItems] {
+        
+        var result: [DeadlineItems] = []
+        var storedDate: [NSManagedObject] = []
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let managedContext = appDelegate?.persistentContainer.viewContext
+        let predicate = NSPredicate(format: "archived == %@", status)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Deadline")
+        fetchRequest.predicate = predicate
+        
+        do {
+            storedDate = try managedContext!.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for item in storedDate {
+            let chosenDate = item.value(forKey: "data") as? Date
+            let titleOfChosenDate = item.value(forKey: "titleDate") as? String
+            let savedEventId = item.value(forKey: "eventId") as? String
+            let archivedStatus = item.value(forKey: "archived") as? Bool
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item, archived: archivedStatus!)
+            result.append(deadlineItem)
+        }
+        
+        return result
+    }
+    
     class func deleteAll(entity: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -66,6 +94,30 @@ class DeadlineItems {
             }
         } catch let error as NSError {
             print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    func archive() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Deadline")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
+                if managedObjectData == self.coreDataItem {
+                    let archivedStatus = true
+                    managedObjectData.setValue(archivedStatus, forKey: "archived")
+                }
+            }
+            do {
+                try managedContext.save()
+            } catch _ {
+            }
+        } catch let error as NSError {
+            print("Delete data error : \(error) \(error.userInfo)")
         }
     }
     
