@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Deadline" representedClassName="Deadline" syncable="YES" codeGenerationType="class">
+        <attribute name="archived" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleDate" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Deadline" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Deadline" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

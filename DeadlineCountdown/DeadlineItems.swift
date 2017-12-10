@@ -15,12 +15,14 @@ class DeadlineItems {
     var date: Date?
     var eventIdentificator: String?
     var coreDataItem: NSManagedObject?
+    var archived: Bool
     
-    init(dateTitle: String, date: Date, eventIdentificator: String, coreDataItem: NSManagedObject) {
+    init(dateTitle: String, date: Date, eventIdentificator: String, coreDataItem: NSManagedObject, archived: Bool) {
         self.dateTitle = dateTitle
         self.date = date
         self.eventIdentificator = eventIdentificator
         self.coreDataItem = coreDataItem
+        self.archived = archived
     }
     
     class func all() -> [DeadlineItems] {
@@ -41,7 +43,8 @@ class DeadlineItems {
             let chosenDate = item.value(forKey: "data") as? Date
             let titleOfChosenDate = item.value(forKey: "titleDate") as? String
             let savedEventId = item.value(forKey: "eventId") as? String
-            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item)
+            let archivedStatus = item.value(forKey: "archived") as? Bool
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item, archived: archivedStatus!)
             result.append(deadlineItem)
         }
         
