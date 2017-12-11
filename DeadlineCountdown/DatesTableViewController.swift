@@ -100,7 +100,7 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let archive = UITableViewRowAction(style: .default, title: "Archive") { (action:UITableViewRowAction, indexPath:IndexPath) in
-            self.storedDatesArray[indexPath.row].archive()
+            self.storedDatesArray[indexPath.row].archive(archivedStatus: true)
             self.storedDatesArray[indexPath.row].archived = true
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)

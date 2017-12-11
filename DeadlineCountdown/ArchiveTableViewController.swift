@@ -98,7 +98,15 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         }
         delete.backgroundColor = .red
         
-        return [delete]
+        let restore = UITableViewRowAction(style: .default, title: "Restore") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            self.storedDatesArray[indexPath.row].archive(archivedStatus: false)
+            self.storedDatesArray[indexPath.row].archived = false
+            self.storedDatesArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        restore.backgroundColor = .magenta
+        
+        return [delete, restore]
     }
     
     // MARK: -  ADMOB BANNER

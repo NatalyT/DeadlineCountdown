@@ -97,7 +97,7 @@ class DeadlineItems {
         }
     }
     
-    func archive() {
+    func archive(archivedStatus: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Deadline")
@@ -108,7 +108,6 @@ class DeadlineItems {
             for managedObject in results {
                 let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
                 if managedObjectData == self.coreDataItem {
-                    let archivedStatus = true
                     managedObjectData.setValue(archivedStatus, forKey: "archived")
                 }
             }
