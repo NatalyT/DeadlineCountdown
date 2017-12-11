@@ -55,6 +55,11 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         let dateTitle = storedDatesArray[indexPath.row].dateTitle!
         let date = storedDatesArray[indexPath.row].date!
         
+        if date < Date() {
+            cell.textLabel?.textColor = UIColor.lightGray
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+        }
+        
         cell.textLabel?.text = dateTitle
         
         let formatter = DateFormatter()
@@ -106,7 +111,12 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         }
         restore.backgroundColor = .magenta
         
-        return [delete, restore]
+        let date = storedDatesArray[indexPath.row].date!
+        if date > Date() {
+            return [delete, restore]
+        } else {
+            return [delete]
+        }
     }
     
     // MARK: -  ADMOB BANNER
