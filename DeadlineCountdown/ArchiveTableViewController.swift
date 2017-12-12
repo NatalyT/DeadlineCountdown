@@ -61,7 +61,8 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         }
         
         cell.textLabel?.text = dateTitle
-        
+        cell.imageView?.image = imageWithImage(image: UIImage(named: "archive")!, scaledToSize: CGSize(width: 20, height: 20))
+
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .long
@@ -71,9 +72,14 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         return cell
     }
     
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     self.performSegue(withIdentifier: "segueToDeadlineVC", sender: indexPath)
-     }*/
+    func imageWithImage(image:UIImage,scaledToSize newSize:CGSize)->UIImage{
+        
+        UIGraphicsBeginImageContext( newSize )
+        image.draw(in: CGRect(x: 0,y: 0,width: newSize.width,height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!.withRenderingMode(.alwaysOriginal)
+    }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -109,7 +115,7 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        restore.backgroundColor = .magenta
+        restore.backgroundColor = .gray
         
         let date = storedDatesArray[indexPath.row].date!
         if date > Date() {
