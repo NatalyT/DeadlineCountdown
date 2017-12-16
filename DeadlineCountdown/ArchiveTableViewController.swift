@@ -71,10 +71,10 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         return cell
     }
     
-    func imageWithImage(image:UIImage,scaledToSize newSize:CGSize)->UIImage{
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
         
-        UIGraphicsBeginImageContext( newSize )
-        image.draw(in: CGRect(x: 0,y: 0,width: newSize.width,height: newSize.height))
+        UIGraphicsBeginImageContext(newSize)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!.withRenderingMode(.alwaysOriginal)
@@ -99,29 +99,36 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
+        let deleteAction = deleteRowAction()
+        let restoreAction = restoreRowAction()
+        let date = storedDatesArray[indexPath.row].date!
+        
+        return date > Date() ? [deleteAction, restoreAction] : [deleteAction]
+    }
+    
+    func deleteRowAction() -> UITableViewRowAction {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
             let idn = self.storedDatesArray[indexPath.row].eventIdentificator
             CalendarEvents().removeEvent(savedEventId: idn!)
             self.storedDatesArray[indexPath.row].delete()
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        delete.backgroundColor = .red
+        deleteAction.backgroundColor = .red
         
-        let restore = UITableViewRowAction(style: .default, title: "Restore") { (action:UITableViewRowAction, indexPath:IndexPath) in
+        return deleteAction
+    }
+    
+    func restoreRowAction() -> UITableViewRowAction {
+        let restoreAction = UITableViewRowAction(style: .default, title: "Restore") { (action:UITableViewRowAction, indexPath:IndexPath) in
             self.storedDatesArray[indexPath.row].archive(archivedStatus: false)
             self.storedDatesArray[indexPath.row].archived = false
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        restore.backgroundColor = .gray
+        restoreAction.backgroundColor = .gray
         
-        let date = storedDatesArray[indexPath.row].date!
-        if date > Date() {
-            return [delete, restore]
-        } else {
-            return [delete]
-        }
+        return restoreAction
     }
     
     // MARK: -  ADMOB BANNER
