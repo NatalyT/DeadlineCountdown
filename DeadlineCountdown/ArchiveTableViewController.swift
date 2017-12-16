@@ -26,7 +26,6 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         storedDatesArray = DeadlineItems.all(status: NSNumber(value: true))
-        storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
         // Init AdMob banner
         initAdMobBanner()

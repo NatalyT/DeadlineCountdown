@@ -76,6 +76,7 @@ class DeadlineItems {
             result.append(deadlineItem)
         }
         
+        result = result.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         return result
     }
     

@@ -31,7 +31,6 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         super.viewWillAppear(animated)
         CalendarEvents().checkCalendarAuthorizationStatus()
         storedDatesArray = DeadlineItems.all(status: NSNumber(value: false))
-        storedDatesArray = storedDatesArray.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         tableView.reloadData()
         // Init AdMob banner
         initAdMobBanner()
