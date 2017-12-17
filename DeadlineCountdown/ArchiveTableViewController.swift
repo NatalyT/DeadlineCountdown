@@ -17,7 +17,7 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
     
     // Ad banner and interstitial views
     var adMobBannerView = GADBannerView()
-    let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
+    //let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         storedDatesArray = DeadlineItems.all(status: NSNumber(value: true))
         tableView.reloadData()
         // Init AdMob banner
-        initAdMobBanner()
+        Banner.load(adMobBannerView: adMobBannerView, viewController: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -129,26 +129,6 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
         restoreAction.backgroundColor = .gray
         
         return restoreAction
-    }
-    
-    // MARK: -  ADMOB BANNER
-    func initAdMobBanner() {
-        
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            // iPhone
-            adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
-        } else  {
-            // iPad
-            adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
-        }
-        
-        adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
-        adMobBannerView.rootViewController = self
-        adMobBannerView.delegate = self
-        
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        adMobBannerView.load(request)
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
