@@ -19,7 +19,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     @IBOutlet weak var scrollView1: UIScrollView!
     
     @IBAction func saveDate(_ sender: Any) {
-        self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!, archivedStatus: false)
+        self.save(date: self.datePicker.date, titleOfDate: self.titleDate.text!)
         
         LocalNotifications().create(selectedDate: self.datePicker.date, titleOfDate: self.titleDate.text!)
         
@@ -66,7 +66,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
         self.view.endEditing(true)
     }
     
-    func save(date: Date, titleOfDate: String, archivedStatus: Bool) {
+    func save(date: Date, titleOfDate: String, archivedStatus: Bool = false) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return

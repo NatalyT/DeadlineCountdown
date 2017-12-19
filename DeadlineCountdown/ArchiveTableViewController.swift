@@ -17,7 +17,6 @@ class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
     
     // Ad banner and interstitial views
     var adMobBannerView = GADBannerView()
-    //let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
     
     override func viewDidLoad() {
         super.viewDidLoad()

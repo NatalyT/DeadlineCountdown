@@ -21,7 +21,6 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     
     // Ad banner and interstitial views
     var adMobBannerView = GADBannerView()
-    let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,7 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         storedDatesArray = DeadlineItems.all(status: NSNumber(value: false))
         tableView.reloadData()
         // Init AdMob banner
-        initAdMobBanner()
+         Banner.load(adMobBannerView: adMobBannerView, viewController: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -98,20 +97,31 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let archive = UITableViewRowAction(style: .default, title: "Archive") { (action:UITableViewRowAction, indexPath:IndexPath) in
+        let archiveAction = archiveRowAction()
+        let editAction = editRowAction()
+        
+        return [archiveAction, editAction]
+    }
+    
+    func archiveRowAction() -> UITableViewRowAction {
+        let archiveAction = UITableViewRowAction(style: .default, title: "Archive") { (action:UITableViewRowAction, indexPath:IndexPath) in
             self.storedDatesArray[indexPath.row].archive(archivedStatus: true)
             self.storedDatesArray[indexPath.row].archived = true
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        archive.backgroundColor = .blue
+        archiveAction.backgroundColor = .blue
         
-        let edit = UITableViewRowAction(style: .default, title: "Edit") { (action:UITableViewRowAction, indexPath:IndexPath) in
+        return archiveAction
+    }
+    
+    func editRowAction() -> UITableViewRowAction {
+        let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action:UITableViewRowAction, indexPath:IndexPath) in
             self.performSegue(withIdentifier: "editDate", sender: indexPath)
         }
-        edit.backgroundColor = .orange
+        editAction.backgroundColor = .orange
         
-        return [archive, edit]
+        return editAction
     }
     
     // MARK: - Navigation
@@ -139,26 +149,6 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
                 secondScene.isEdit = false
             }
         }
-    }
-    
-    // MARK: -  ADMOB BANNER
-    func initAdMobBanner() {
-        
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            // iPhone
-            adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
-        } else  {
-            // iPad
-            adMobBannerView.adSize =  GADAdSizeFromCGSize(CGSize(width: 468, height: 60))
-        }
-        
-        adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
-        adMobBannerView.rootViewController = self
-        adMobBannerView.delegate = self
-        
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        adMobBannerView.load(request)
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
