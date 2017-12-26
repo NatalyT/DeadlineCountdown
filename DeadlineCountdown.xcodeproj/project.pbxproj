@@ -10,6 +10,7 @@
 		C10D61CF1FCB2B5B00CD56B7 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D61CE1FCB2B5B00CD56B7 /* LocalNotifications.swift */; };
 		C10D61D11FDB2ED400CD56B7 /* ArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D61D01FDB2ED400CD56B7 /* ArchiveTableViewController.swift */; };
 		C10D61D31FE5ADCF00CD56B7 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D61D21FE5ADCE00CD56B7 /* Banner.swift */; };
+		C10D61D51FF260EC00CD56B7 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C10D61D41FF260EC00CD56B7 /* Keys.plist */; };
 		C11249621F92543500AB65E6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249611F92543500AB65E6 /* EventKit.framework */; };
 		C11249641F92544C00AB65E6 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249631F92544C00AB65E6 /* EventKitUI.framework */; };
 		C11249661F92545C00AB65E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249651F92545B00AB65E6 /* AVFoundation.framework */; };
@@ -65,6 +66,7 @@
 		C10D61CE1FCB2B5B00CD56B7 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
 		C10D61D01FDB2ED400CD56B7 /* ArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewController.swift; sourceTree = "<group>"; };
 		C10D61D21FE5ADCE00CD56B7 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		C10D61D41FF260EC00CD56B7 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		C110708F1F8A74A30073E5F8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.24.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		C11249611F92543500AB65E6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -216,6 +218,7 @@
 				C15E170F1F5F0FC4008B1CCB /* NextDay.swift */,
 				C115AC3D1F712885001747FC /* CalendarEvents.swift */,
 				C10D61D21FE5ADCE00CD56B7 /* Banner.swift */,
+				C10D61D41FF260EC00CD56B7 /* Keys.plist */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10D61D51FF260EC00CD56B7 /* Keys.plist in Resources */,
 				C1289CC21F213C810013D446 /* LaunchScreen.storyboard in Resources */,
 				C1289CBF1F213C810013D446 /* Assets.xcassets in Resources */,
 				C1289CBD1F213C810013D446 /* Main.storyboard in Resources */,

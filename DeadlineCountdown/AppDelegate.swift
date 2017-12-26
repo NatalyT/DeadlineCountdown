@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().delegate = self
         
+        DeadlineItems.archiveAll()
+        
         // Clear the Database
          /*var storedDate = DeadlineItems.all()
          CalendarEvents().removeAllEvents(storedDatesArray: storedDate)
@@ -41,11 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
          storedDate = DeadlineItems.all()
          */
         
-        let storedDate = DeadlineItems.all()
+        /*let storedDate = DeadlineItems.all()
         print("\(storedDate.count)")
         for item in storedDate {
             print("---\(String(describing: item.dateTitle))  \(String(describing: item.date)))")
-        }
+        }*/
         
         return true
     }

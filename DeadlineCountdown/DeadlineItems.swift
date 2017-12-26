@@ -143,4 +143,13 @@ class DeadlineItems {
             print("Delete data error : \(error) \(error.userInfo)")
         }
     }
+    
+    class func archiveAll() {
+        let storedDatesArray = DeadlineItems.all(status: NSNumber(value: false))
+        for item in storedDatesArray {
+            if item.date! < Date() {
+                item.archive(archivedStatus: true)
+            }
+        }
+    }
 }
