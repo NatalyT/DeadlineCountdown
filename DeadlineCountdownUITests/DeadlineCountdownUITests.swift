@@ -34,16 +34,17 @@ class DeadlineCountdownUITests: XCTestCase {
     
     func addingNewDate() {
         // Use recording to get started writing UI tests.
-            app.navigationBars["DeadlinesList"].buttons["Add"].tap()
+            app.navigationBars["Your deadlines"].buttons["Add"].tap()
             
-            let titleTextField = app.textFields["type date title                    "]
+            let titleTextField = app.textFields["type date title"]
             titleTextField.tap()
             titleTextField.typeText("Neues Datum")
             
             let datePickers = app.datePickers
-            datePickers.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "December")
+            datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2018")
+            datePickers.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "May")
             datePickers.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "17")
-            datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2017")
+        
             
             let chooseButton = app.buttons["Choose"]
             chooseButton.tap()
@@ -56,7 +57,7 @@ class DeadlineCountdownUITests: XCTestCase {
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssertTrue(app.tables.staticTexts["Neues Datum"].exists)
-        XCTAssertTrue(app.tables.staticTexts["December 17, 2017"].exists)
+        XCTAssertTrue(app.tables.staticTexts["May 17, 2018"].exists)
     }
     
     func testEditingExistingDate() {
@@ -73,22 +74,23 @@ class DeadlineCountdownUITests: XCTestCase {
         titleTextField.typeText("Modified Date")
         
         let datePickers = app.datePickers
-        datePickers.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "December")
+        datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2018")
+        datePickers.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "August")
         datePickers.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "25")
-        datePickers.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "2017")
         
         let chooseButton = app.buttons["Choose"]
         chooseButton.tap()
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssertTrue(app.tables.staticTexts["Modified Date"].exists)
-        XCTAssertTrue(app.tables.staticTexts["December 25, 2017"].exists)
+        XCTAssertTrue(app.tables.staticTexts["August 25, 2018"].exists)
     }
     
-    func testDeletingExistingDate() {
+    func testDeletingArchivedDate() {
         // Use recording to get started writing UI tests.
-        addingNewDate()
         
+        let tabBar = app.tabBars
+        tabBar.buttons.element(boundBy: 1).tap()
         let tablesQuery = app.tables.cells
         let cellsCountBefore = app.cells.count
         tablesQuery.element(boundBy: 0).swipeLeft()
@@ -99,13 +101,60 @@ class DeadlineCountdownUITests: XCTestCase {
         XCTAssertEqual(cellsCountBefore, cellsCountAfter)
     }
     
+    func testArchivingExistingDate() {
+        // Use recording to get started writing UI tests.
+        addingNewDate()
+        
+        let tabBar = app.tabBars
+        tabBar.buttons.element(boundBy: 1).tap()
+        let cellsCountBeforeArchived = app.cells.count
+        
+        tabBar.buttons.element(boundBy: 0).tap()
+        let tablesQuery = app.tables.cells
+        let cellsCountBefore = app.cells.count
+        tablesQuery.element(boundBy: 0).swipeLeft()
+        tablesQuery.element(boundBy: 0).buttons["Archive"].tap()
+        let cellsCountAfter = app.cells.count + 1
+        
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(cellsCountBefore, cellsCountAfter)
+        
+        tabBar.buttons.element(boundBy: 1).tap()
+        let cellsCountAfterArchived = app.cells.count - 1
+        
+        XCTAssertEqual(cellsCountBeforeArchived, cellsCountAfterArchived)
+    }
+    
+    func testRestoringArchivedDate() {
+        // Use recording to get started writing UI tests.
+        
+        let tabBar = app.tabBars
+        tabBar.buttons.element(boundBy: 0).tap()
+        let cellsCountBeforeRestored = app.cells.count
+        
+        tabBar.buttons.element(boundBy: 1).tap()
+        let tablesQuery = app.tables.cells
+        let cellsCountBefore = app.cells.count
+        tablesQuery.element(boundBy: 0).swipeLeft()
+        tablesQuery.element(boundBy: 0).buttons["Restore"].tap()
+        let cellsCountAfter = app.cells.count + 1
+        
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual(cellsCountBefore, cellsCountAfter)
+        
+        tabBar.buttons.element(boundBy: 0).tap()
+        let cellsCountAfterRestored = app.cells.count - 1
+        
+        XCTAssertEqual(cellsCountBeforeRestored, cellsCountAfterRestored)
+    }
+    
     func testDisplayingExistingDate() {
         // Use recording to get started writing UI tests.
         addingNewDate()
         
         app.tables.staticTexts["Modified Date"].tap()
         let dateTitleLabelElement = app.staticTexts["Modified Date in"]
-        let deadlineLabelElement = app.staticTexts["2m   21d"]
+        let deadlineLabelElement = app.staticTexts["7m   29d"]
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssertEqual(dateTitleLabelElement.exists, true)
