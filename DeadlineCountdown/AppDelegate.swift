@@ -22,9 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self])
         
+        GADMobileAds.configure(withApplicationID: AdMobConfig().appId!)
+        
         // Initialize the Google Mobile Ads SDK.
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-9691910327507240~7962045576")
+        //GADMobileAds.configure(withApplicationID: "ca-app-pub-9691910327507240~7962045576")
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
             if !accepted {
