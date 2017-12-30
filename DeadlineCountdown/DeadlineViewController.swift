@@ -28,7 +28,6 @@ class DeadlineViewController: UIViewController, GADBannerViewDelegate {
     
     // Ad banner and interstitial views
     var adMobBannerView: GADBannerView!
-    let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
     
     var bgImage = UIImage()
     var bgImageView = UIImageView()
@@ -116,7 +115,7 @@ class DeadlineViewController: UIViewController, GADBannerViewDelegate {
         addBannerViewToView(adMobBannerView)
         adMobBannerView.rootViewController = self
         // Set the ad unit ID to your own ad unit ID here.
-        adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
+        adMobBannerView.adUnitID = AdMobConfig().bannerId
         
         //adMobBannerView.load(GADRequest())
         let request = GADRequest()
@@ -165,6 +164,5 @@ class DeadlineViewController: UIViewController, GADBannerViewDelegate {
                                               multiplier: 1,
                                               constant: 0))
     }
-    
 }
 
