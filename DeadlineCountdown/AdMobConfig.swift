@@ -13,7 +13,7 @@ class AdMobConfig {
     var bannerId: String?
     var appId: String?
     
-    init(){
+    init() {
         var keys: NSDictionary?
         let path = Bundle.main.path(forResource: "Keys", ofType: "plist")
         keys = NSDictionary(contentsOfFile: path!)
