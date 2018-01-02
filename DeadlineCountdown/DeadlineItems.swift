@@ -71,8 +71,7 @@ class DeadlineItems {
             let chosenDate = item.value(forKey: "data") as? Date
             let titleOfChosenDate = item.value(forKey: "titleDate") as? String
             let savedEventId = item.value(forKey: "eventId") as? String
-            let archivedStatus = item.value(forKey: "archived") as? Bool
-            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item, archived: archivedStatus!)
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item, archived: false)
             result.append(deadlineItem)
         }
         
@@ -145,11 +144,10 @@ class DeadlineItems {
     }
     
     class func archiveAll() {
-        let storedDatesArray = DeadlineItems.all(status: NSNumber(value: false))
+        let storedDatesArray = DeadlineItems.all()
         for item in storedDatesArray {
-            if item.date! < Date() {
-                item.archive(archivedStatus: true)
-            }
+            let isArchive = item.date! < Date()
+            item.archive(archivedStatus: isArchive)
         }
     }
 }
