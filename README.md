@@ -7,17 +7,18 @@ Do you want to prepare for the birthday of a relative and do not forget about it
 -  Manage of deadlines:
     - Create new deadline
     - Edit an existing one
-    - Delete selected deadline
+    - Archive the old entries
     - Display the remaining till the deadline amount of time
+    - Restore archived deadline
+    - Delete archived deadline
 -  Manage of calendar events
     - Create new calendar event
     - Edit an existing one
     - Delete selected event
+-  Local notifications
 
 ## Future features:
 - Change the app background
 - Synchronization by iCloud
-- Notifications
-- Archive the old entries
 - iPad version
 
