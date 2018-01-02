@@ -27,7 +27,7 @@ class DeadlineCountdownTests: XCTestCase {
     func testTodayIsDeadline() {
         
         textUnderTest = DeadlineText(years: 0, months: 0, days: 0)
-        XCTAssertEqual(textUnderTest.toString(), "Today")
+        XCTAssertEqual(textUnderTest.toString(), "is Today")
 
     }
     

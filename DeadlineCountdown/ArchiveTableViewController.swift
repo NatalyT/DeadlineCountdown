@@ -1,8 +1,8 @@
 //
-//  DatesTableViewController.swift
+//  ArchiveTableViewController.swift
 //  DeadlineCountdown
 //
-//  Created by Nataly Tatarintseva on 8/22/17.
+//  Created by Nataly Tatarintseva on 12/8/17.
 //  Copyright © 2017 Nataly Tatarintseva. All rights reserved.
 //
 
@@ -11,13 +11,9 @@ import CoreData
 import GoogleMobileAds
 import AudioToolbox
 
-class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
+class ArchiveTableViewController: UITableViewController, GADBannerViewDelegate {
     
     var storedDatesArray: [DeadlineItems] = []
-    
-    @IBAction func unwindToDatesTableVC (segue: UIStoryboardSegue) {
-        
-    }
     
     // Ad banner and interstitial views
     var adMobBannerView = GADBannerView()
@@ -28,11 +24,10 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        CalendarEvents().checkCalendarAuthorizationStatus()
-        storedDatesArray = DeadlineItems.all(status: NSNumber(value: false))
+        storedDatesArray = DeadlineItems.all(status: NSNumber(value: true))
         tableView.reloadData()
         // Init AdMob banner
-         Banner.load(adMobBannerView: adMobBannerView, viewController: self)
+        Banner.load(adMobBannerView: adMobBannerView, viewController: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +48,7 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "archivedCell", for: indexPath) as UITableViewCell
         
         let dateTitle = storedDatesArray[indexPath.row].dateTitle!
         let date = storedDatesArray[indexPath.row].date!
@@ -64,7 +59,8 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         }
         
         cell.textLabel?.text = dateTitle
-        
+        cell.imageView?.image = imageWithImage(image: UIImage(named: "archive")!, scaledToSize: CGSize(width: 20, height: 20))
+
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .long
@@ -74,8 +70,13 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "segueToDeadlineVC", sender: indexPath)
+    func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        
+        UIGraphicsBeginImageContext(newSize)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!.withRenderingMode(.alwaysOriginal)
     }
     
     // Override to support conditional editing of the table view.
@@ -97,58 +98,36 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let archiveAction = archiveRowAction()
-        let editAction = editRowAction()
+        let deleteAction = deleteRowAction()
+        let restoreAction = restoreRowAction()
+        let date = storedDatesArray[indexPath.row].date!
         
-        return [archiveAction, editAction]
+        return date > Date() ? [deleteAction, restoreAction] : [deleteAction]
     }
     
-    func archiveRowAction() -> UITableViewRowAction {
-        let archiveAction = UITableViewRowAction(style: .default, title: "Archive") { (action:UITableViewRowAction, indexPath:IndexPath) in
-            self.storedDatesArray[indexPath.row].archive(archivedStatus: true)
-            self.storedDatesArray[indexPath.row].archived = true
+    func deleteRowAction() -> UITableViewRowAction {
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            let idn = self.storedDatesArray[indexPath.row].eventIdentificator
+            CalendarEvents().removeEvent(savedEventId: idn!)
+            self.storedDatesArray[indexPath.row].delete()
             self.storedDatesArray.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        archiveAction.backgroundColor = .blue
+        deleteAction.backgroundColor = .red
         
-        return archiveAction
+        return deleteAction
     }
     
-    func editRowAction() -> UITableViewRowAction {
-        let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action:UITableViewRowAction, indexPath:IndexPath) in
-            self.performSegue(withIdentifier: "editDate", sender: indexPath)
+    func restoreRowAction() -> UITableViewRowAction {
+        let restoreAction = UITableViewRowAction(style: .default, title: "Restore") { (action:UITableViewRowAction, indexPath:IndexPath) in
+            self.storedDatesArray[indexPath.row].archive(archivedStatus: false)
+            self.storedDatesArray[indexPath.row].archived = false
+            self.storedDatesArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        editAction.backgroundColor = .orange
+        restoreAction.backgroundColor = .gray
         
-        return editAction
-    }
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        if segue.identifier == "segueToDeadlineVC" {
-            let thirdScene = segue.destination as! DeadlineViewController
-            
-            if let indexPath = sender {
-                let selectedDate = storedDatesArray[(indexPath as AnyObject).row]
-                thirdScene.selectedDate = selectedDate
-            }
-        } else {
-            let secondScene = segue.destination as! DatePickerViewController
-            
-            if segue.identifier == "editDate", let indexPath = sender {
-                let selectedDate = storedDatesArray[(indexPath as AnyObject).row]
-                secondScene.selectedDate = selectedDate
-                secondScene.isEdit = true
-            } else if segue.identifier == "segueToDatePickerVC" {
-                let selectedDate: DeadlineItems? = nil
-                secondScene.selectedDate = selectedDate
-                secondScene.isEdit = false
-            }
-        }
+        return restoreAction
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
@@ -160,3 +139,4 @@ class DatesTableViewController: UITableViewController, GADBannerViewDelegate {
         print(error)
     }
 }
+

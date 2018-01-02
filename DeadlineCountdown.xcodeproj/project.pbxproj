@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C10D61CF1FCB2B5B00CD56B7 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D61CE1FCB2B5B00CD56B7 /* LocalNotifications.swift */; };
+		C10D61D11FDB2ED400CD56B7 /* ArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D61D01FDB2ED400CD56B7 /* ArchiveTableViewController.swift */; };
+		C10D61D31FE5ADCF00CD56B7 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D61D21FE5ADCE00CD56B7 /* Banner.swift */; };
 		C11249621F92543500AB65E6 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249611F92543500AB65E6 /* EventKit.framework */; };
 		C11249641F92544C00AB65E6 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249631F92544C00AB65E6 /* EventKitUI.framework */; };
 		C11249661F92545C00AB65E6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C11249651F92545B00AB65E6 /* AVFoundation.framework */; };
@@ -34,6 +36,8 @@
 		C15E17101F5F0FC4008B1CCB /* NextDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E170F1F5F0FC4008B1CCB /* NextDay.swift */; };
 		C15E17111F65B42E008B1CCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1289CBB1F213C810013D446 /* Main.storyboard */; };
 		C17A579A1F326BDB00A29908 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C17A57981F326BDB00A29908 /* Model.xcdatamodeld */; };
+		C18A6E431FF54C3900A9879E /* AdMobConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18A6E421FF54C3900A9879E /* AdMobConfig.swift */; };
+		C18A6E471FF5639700A9879E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C18A6E461FF5639700A9879E /* Keys.plist */; };
 		C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */; };
 		C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */; };
 		C1B891521F8164E300AD73A7 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B891511F8164E300AD73A7 /* InsetLabel.swift */; };
@@ -61,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		C10D61CE1FCB2B5B00CD56B7 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		C10D61D01FDB2ED400CD56B7 /* ArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewController.swift; sourceTree = "<group>"; };
+		C10D61D21FE5ADCE00CD56B7 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		C110708F1F8A74A30073E5F8 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		C112495D1F90F14400AB65E6 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.24.1/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		C11249611F92543500AB65E6 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -96,6 +102,8 @@
 		C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesTableViewController.swift; sourceTree = "<group>"; };
 		C15E170F1F5F0FC4008B1CCB /* NextDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextDay.swift; sourceTree = "<group>"; };
 		C17A57991F326BDB00A29908 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C18A6E421FF54C3900A9879E /* AdMobConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobConfig.swift; sourceTree = "<group>"; };
+		C18A6E461FF5639700A9879E /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineViewController.swift; sourceTree = "<group>"; };
 		C1B891511F8164E300AD73A7 /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 				C1DDCAD91F897DF30044451F /* Crashlytics.framework */,
 				C1DDCAD81F897DF30044451F /* Fabric.framework */,
 				C1289CB71F213C810013D446 /* AppDelegate.swift */,
+				C10D61D01FDB2ED400CD56B7 /* ArchiveTableViewController.swift */,
 				C1418E171F4CBDAD009A8F41 /* DatesTableViewController.swift */,
 				C19D8CAD1F267795003B6493 /* DatePickerViewController.swift */,
 				C19D8CAF1F2677CF003B6493 /* DeadlineViewController.swift */,
@@ -210,6 +219,9 @@
 				C10D61CE1FCB2B5B00CD56B7 /* LocalNotifications.swift */,
 				C15E170F1F5F0FC4008B1CCB /* NextDay.swift */,
 				C115AC3D1F712885001747FC /* CalendarEvents.swift */,
+				C10D61D21FE5ADCE00CD56B7 /* Banner.swift */,
+				C18A6E461FF5639700A9879E /* Keys.plist */,
+				C18A6E421FF54C3900A9879E /* AdMobConfig.swift */,
 			);
 			path = DeadlineCountdown;
 			sourceTree = "<group>";
@@ -369,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18A6E471FF5639700A9879E /* Keys.plist in Resources */,
 				C1289CC21F213C810013D446 /* LaunchScreen.storyboard in Resources */,
 				C1289CBF1F213C810013D446 /* Assets.xcassets in Resources */,
 				C1289CBD1F213C810013D446 /* Main.storyboard in Resources */,
@@ -416,11 +429,14 @@
 				C10D61CF1FCB2B5B00CD56B7 /* LocalNotifications.swift in Sources */,
 				C19D8CB01F2677CF003B6493 /* DeadlineViewController.swift in Sources */,
 				C1143F131F2A6D1900ED612C /* DeadlineText.swift in Sources */,
+				C10D61D11FDB2ED400CD56B7 /* ArchiveTableViewController.swift in Sources */,
 				C17A579A1F326BDB00A29908 /* Model.xcdatamodeld in Sources */,
 				C1289CB81F213C810013D446 /* AppDelegate.swift in Sources */,
+				C10D61D31FE5ADCF00CD56B7 /* Banner.swift in Sources */,
 				C1418E181F4CBDAD009A8F41 /* DatesTableViewController.swift in Sources */,
 				C15E17101F5F0FC4008B1CCB /* NextDay.swift in Sources */,
 				C115AC3E1F712885001747FC /* CalendarEvents.swift in Sources */,
+				C18A6E431FF54C3900A9879E /* AdMobConfig.swift in Sources */,
 				C1B891521F8164E300AD73A7 /* InsetLabel.swift in Sources */,
 				C19D8CAE1F267795003B6493 /* DatePickerViewController.swift in Sources */,
 				C1143F111F2A2B5C00ED612C /* DeadlineCalculator.swift in Sources */,

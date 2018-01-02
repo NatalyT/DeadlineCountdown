@@ -15,12 +15,14 @@ class DeadlineItems {
     var date: Date?
     var eventIdentificator: String?
     var coreDataItem: NSManagedObject?
+    var archived: Bool
     
-    init(dateTitle: String, date: Date, eventIdentificator: String, coreDataItem: NSManagedObject) {
+    init(dateTitle: String, date: Date, eventIdentificator: String, coreDataItem: NSManagedObject, archived: Bool) {
         self.dateTitle = dateTitle
         self.date = date
         self.eventIdentificator = eventIdentificator
         self.coreDataItem = coreDataItem
+        self.archived = archived
     }
     
     class func all() -> [DeadlineItems] {
@@ -41,10 +43,39 @@ class DeadlineItems {
             let chosenDate = item.value(forKey: "data") as? Date
             let titleOfChosenDate = item.value(forKey: "titleDate") as? String
             let savedEventId = item.value(forKey: "eventId") as? String
-            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item)
+            let archivedStatus = item.value(forKey: "archived") as? Bool
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item, archived: archivedStatus!)
             result.append(deadlineItem)
         }
         
+        return result
+    }
+    
+    class func all(status: NSNumber) -> [DeadlineItems] {
+        
+        var result: [DeadlineItems] = []
+        var storedDate: [NSManagedObject] = []
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let managedContext = appDelegate?.persistentContainer.viewContext
+        let predicate = NSPredicate(format: "archived == %@", status)
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Deadline")
+        fetchRequest.predicate = predicate
+        
+        do {
+            storedDate = try managedContext!.fetch(fetchRequest as! NSFetchRequest<NSFetchRequestResult>) as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for item in storedDate {
+            let chosenDate = item.value(forKey: "data") as? Date
+            let titleOfChosenDate = item.value(forKey: "titleDate") as? String
+            let savedEventId = item.value(forKey: "eventId") as? String
+            let deadlineItem = DeadlineItems(dateTitle: titleOfChosenDate!, date: chosenDate!, eventIdentificator: savedEventId!, coreDataItem: item, archived: false)
+            result.append(deadlineItem)
+        }
+        
+        result = result.sorted(by: { $0.date?.compare($1.date!) == .orderedAscending })
         return result
     }
     
@@ -63,6 +94,29 @@ class DeadlineItems {
             }
         } catch let error as NSError {
             print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    func archive(archivedStatus: Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Deadline")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
+                if managedObjectData == self.coreDataItem {
+                    managedObjectData.setValue(archivedStatus, forKey: "archived")
+                }
+            }
+            do {
+                try managedContext.save()
+            } catch _ {
+            }
+        } catch let error as NSError {
+            print("Delete data error : \(error) \(error.userInfo)")
         }
     }
     
@@ -86,6 +140,14 @@ class DeadlineItems {
             }
         } catch let error as NSError {
             print("Delete data error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    class func archiveAll() {
+        let storedDatesArray = DeadlineItems.all()
+        for item in storedDatesArray {
+            let isArchive = item.date! < Date()
+            item.archive(archivedStatus: isArchive)
         }
     }
 }

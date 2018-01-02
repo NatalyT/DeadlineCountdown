@@ -33,7 +33,6 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
     
     // Ad banner and interstitial views
     var adMobBannerView: GADBannerView!
-    let ADMOB_BANNER_UNIT_ID = "ca-app-pub-9691910327507240/6202482590"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +65,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
         self.view.endEditing(true)
     }
     
-    func save(date: Date, titleOfDate: String) {
+    func save(date: Date, titleOfDate: String, archivedStatus: Bool = false) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -89,6 +88,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
         deadline.setValue(date, forKeyPath: "data")
         deadline.setValue(titleOfDate, forKey: "titleDate")
         deadline.setValue(newEventId, forKey: "eventId")
+        deadline.setValue(archivedStatus, forKey: "archived")
         
         do {
             try deadline.managedObjectContext?.save()
@@ -104,7 +104,7 @@ class DatePickerViewController: UIViewController, UITextFieldDelegate, GADBanner
         addBannerViewToView(adMobBannerView)
         adMobBannerView.rootViewController = self
         // Set the ad unit ID to your own ad unit ID here.
-        adMobBannerView.adUnitID = ADMOB_BANNER_UNIT_ID
+        adMobBannerView.adUnitID = AdMobConfig().bannerId
         
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]

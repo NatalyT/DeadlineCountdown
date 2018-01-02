@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Initialize the Google Mobile Ads SDK.
         // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-9691910327507240~7962045576")
+        GADMobileAds.configure(withApplicationID: AdMobConfig().appId!)
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
             if !accepted {
@@ -34,18 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().delegate = self
         
+        DeadlineItems.archiveAll()
+        
         // Clear the Database
-        /*var storedDate = DeadlineItems.all()
+         /*var storedDate = DeadlineItems.all()
          CalendarEvents().removeAllEvents(storedDatesArray: storedDate)
          DeadlineItems.deleteAll(entity: "Deadline")
          storedDate = DeadlineItems.all()
          */
         
-        let storedDate = DeadlineItems.all()
+        /*let storedDate = DeadlineItems.all()
         print("\(storedDate.count)")
         for item in storedDate {
             print("---\(String(describing: item.dateTitle))  \(String(describing: item.date)))")
-        }
+        }*/
         
         return true
     }
