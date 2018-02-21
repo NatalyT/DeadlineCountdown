@@ -1,5 +1,7 @@
 # DeadlineCountdown
 
+<a href="https://codeclimate.com/github/NatalyT/DeadlineCountdown/maintainability"><img src="https://api.codeclimate.com/v1/badges/0d49a3d616aa08f98cc3/maintainability" /></a>
+
 The DeadlineCountdown App can be used as storage for all your deadlines. It helps to track time left until your important events. These important events you create by yourself.
 Do you want to prepare for the birthday of a relative and do not forget about it? Add an important event and you can see how much time you still have.
 
